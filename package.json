@@ -1,0 +1,18 @@
+{
+  "name": "bot-figurinhas-discord",
+  "version": "1.0.0",
+  "description": "Este é um bot de Discord com o objetivo de adicionar um sistema de figurinhas para os servidores;\r A utilização dele nos servidores é livre;\r Erros de código ou mal funcionamento devem ser informados ao dono do bot;\r Contato: jeffinpvp.games@gmail.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2",
+    "quick.db": "^9.1.7",
+    "sqlite3": "^6.0.1"
+  }
+}
