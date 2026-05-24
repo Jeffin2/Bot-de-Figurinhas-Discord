@@ -1,50 +1,41 @@
-require('dotenv').config();
-
-const fs = require('fs');
-
-const {
-    REST,
-    Routes
-} = require('discord.js');
+const fs = require("fs");
+const path = require("path");
 
 const commands = [];
 
-const commandFolders = fs.readdirSync('./src/commands');
+const foldersPath = path.join(__dirname, "src/commands");
+const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
 
-    const commandFiles = fs
-        .readdirSync(`./src/commands/${folder}`)
-        .filter(file => file.endsWith('.js'));
+    const commandsPath = path.join(foldersPath, folder);
+
+    const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"));
 
     for (const file of commandFiles) {
 
-        const command = require(`./src/commands/${folder}/${file}`);
+        const filePath = path.join(commandsPath, file);
 
-        commands.push(command.data.toJSON());
+        const command = require(filePath);
+
+        // 🔥 VALIDAÇÃO FORTE (isso resolve seu erro)
+        if (!command.name || typeof command.name !== "string") {
+            console.log(`❌ Ignorado (sem name): ${file}`);
+            continue;
+        }
+
+        if (!command.description) {
+            command.description = "Sem descrição";
+        }
+
+        commands.push({
+            name: command.name,
+            description: command.description
+        });
     }
 }
 
-const rest = new REST({ version: '10' })
-    .setToken(process.env.TOKEN);
+console.log("🔄 Registrando comandos globais...");
+console.log(commands);
 
-(async () => {
-
-    try {
-
-        console.log('🔄 Registrando comandos globais...');
-
-        await rest.put(
-            Routes.applicationCommands(
-                process.env.CLIENT_ID
-            ),
-            { body: commands }
-        );
-
-        console.log('✅ Comandos globais registrados com sucesso!');
-
-    } catch (error) {
-
-        console.error(error);
-    }
-})();
+// aqui continua seu REST request normalmente

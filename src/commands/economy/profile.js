@@ -1,25 +1,20 @@
-const {
-    SlashCommandBuilder,
-    EmbedBuilder
-} = require('discord.js');
-
+const { EmbedBuilder } = require('discord.js');
 const db = require('../../database/database');
 
 module.exports = {
-
-    data: new SlashCommandBuilder()
-        .setName('profile')
-        .setDescription('Veja seu perfil'),
+    name: 'profile',
+    description: 'Veja seu perfil',
 
     async execute(interaction) {
 
         const userId = interaction.user.id;
 
-        const coins =
-            await db.get(`coins_${userId}`) || 0;
+        const coins = await db.get(`coins_${userId}`) || 0;
+        const inventory = await db.get(`inventory_${userId}`) || {};
 
-        const inventory =
-            await db.get(`inventory_${userId}`) || [];
+        // 📊 conta total de cartas corretamente
+        const totalCards = Object.values(inventory)
+            .reduce((acc, amount) => acc + amount, 0);
 
         const embed = new EmbedBuilder()
             .setColor('#00BFFF')
@@ -33,16 +28,12 @@ module.exports = {
                 },
                 {
                     name: '🎴 Cartas',
-                    value: `${inventory.length}`,
+                    value: `${totalCards}`,
                     inline: true
                 }
             )
-            .setFooter({
-                text: 'FiguVerse'
-            });
+            .setFooter({ text: 'FiguVerse' });
 
-        interaction.reply({
-            embeds: [embed]
-        });
+        return interaction.reply({ embeds: [embed] });
     }
 };

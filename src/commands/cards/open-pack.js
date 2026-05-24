@@ -1,159 +1,78 @@
-const {
-    SlashCommandBuilder,
-    EmbedBuilder
-} = require('discord.js');
+const { EmbedBuilder } = require("discord.js");
+const db = require("../../database/database");
+const cards = require("../../models/cards");
 
-const db = require('../../database/database');
-
-const {
-    getRandomCard
-} = require('../../utils/randomCard');
+function getRandomCard() {
+    return cards[Math.floor(Math.random() * cards.length)];
+}
 
 module.exports = {
-
-    data: new SlashCommandBuilder()
-        .setName('open-pack')
-        .setDescription('Abra um pacote')
-        .addStringOption(option =>
-            option
-                .setName('tipo')
-                .setDescription('Tipo do pacote')
-                .setRequired(true)
-                .addChoices(
-                    {
-                        name: 'Basic Pack',
-                        value: 'basic'
-                    },
-                    {
-                        name: 'Premium Pack',
-                        value: 'premium'
-                    },
-                    {
-                        name: 'Elite Pack',
-                        value: 'elite'
-                    }
-                )
-        ),
+    name: "open-pack",
+    description: "Abre um pacote de figurinhas",
 
     async execute(interaction) {
 
-        const userId = interaction.user.id;
+        try {
 
-        const type =
-            interaction.options.getString('tipo');
+            const card = getRandomCard();
 
-        const packs =
-            await db.get(`packs_${userId}_${type}`) || 0;
+            if (!card) {
+                return interaction.reply({
+                    content: "❌ Nenhuma carta encontrada.",
+                    ephemeral: true
+                });
+            }
 
-        if (packs <= 0) {
+            const userId = interaction.user.id;
+
+            // 📦 pega inventário
+            let inventory = await db.get(`inventory_${userId}`);
+
+            if (!inventory) inventory = {};
+
+            // 🔄 garante formato correto
+            if (Array.isArray(inventory)) {
+                const converted = {};
+
+                for (const c of inventory) {
+                    if (!c?.id) continue;
+                    converted[c.id] = (converted[c.id] || 0) + 1;
+                }
+
+                inventory = converted;
+            }
+
+            // 🎴 adiciona carta
+            inventory[card.id] = (inventory[card.id] || 0) + 1;
+
+            await db.set(`inventory_${userId}`, inventory);
+
+            // 🎨 cor da raridade
+            const color =
+                card.rarity === "Mítico" ? 0xff0000 :
+                card.rarity === "Lendário" ? 0xf1c40f :
+                card.rarity === "Épico" ? 0x9b59b6 :
+                card.rarity === "Raro" ? 0x3498db :
+                0xffffff;
+
+            const embed = new EmbedBuilder()
+                .setTitle("🎴 Pacote Aberto!")
+                .setDescription(
+                    `**${card.name}**\n` +
+                    `🌍 Seleção: ${card.selection}\n` +
+                    `⭐ Raridade: ${card.rarity}`
+                )
+                .setColor(color);
+
+            return interaction.reply({ embeds: [embed] });
+
+        } catch (err) {
+            console.error(err);
 
             return interaction.reply({
-                content:
-                    `❌ Você não possui ${type} packs.`,
+                content: "❌ Erro ao abrir pack.",
                 ephemeral: true
             });
         }
-
-        await db.sub(
-            `packs_${userId}_${type}`,
-            1
-        );
-
-        let amount = 3;
-
-        if (type === 'premium') amount = 5;
-
-        if (type === 'elite') amount = 7;
-
-        // PRIMEIRA MENSAGEM
-        const openingEmbed = new EmbedBuilder()
-            .setColor('#FFD700')
-            .setTitle('📦 Abrindo pacote...')
-            .setDescription(
-                '🌀 Preparando suas figurinhas...'
-            );
-
-        await interaction.reply({
-            embeds: [openingEmbed]
-        });
-
-        // ESPERA 2 SEGUNDOS
-        await new Promise(resolve =>
-            setTimeout(resolve, 2000)
-        );
-
-        // SEGUNDA MENSAGEM
-        const revealEmbed = new EmbedBuilder()
-            .setColor('#00BFFF')
-            .setTitle('✨ Revelando cartas...')
-            .setDescription(
-                '🎴 As figurinhas estão aparecendo...'
-            );
-
-        await interaction.editReply({
-            embeds: [revealEmbed]
-        });
-
-        // ESPERA 2 SEGUNDOS
-        await new Promise(resolve =>
-            setTimeout(resolve, 2000)
-        );
-
-        let inventory =
-            await db.get(`inventory_${userId}`) || {};
-
-        const openedCards = [];
-
-        for (let i = 0; i < amount; i++) {
-
-            const card = getRandomCard(type);
-
-            if (!inventory[card.id]) {
-
-                inventory[card.id] = 1;
-
-            } else {
-
-                inventory[card.id]++;
-            }
-
-            let emoji = '⚪';
-
-            if (card.rarity === 'Rare')
-                emoji = '🔵';
-
-            if (card.rarity === 'Epic')
-                emoji = '🟣';
-
-            if (card.rarity === 'Legendary')
-                emoji = '🟡';
-
-            if (card.rarity === 'Mythic')
-                emoji = '🔴';
-
-            openedCards.push(
-                `${emoji} ${card.name} • ${card.rarity}`
-            );
-        }
-
-        await db.set(
-            `inventory_${userId}`,
-            inventory
-        );
-
-        const finalEmbed = new EmbedBuilder()
-            .setColor('#FFD700')
-            .setTitle('🎉 Pack Aberto!')
-            .setDescription(
-                openedCards.join('\n')
-            )
-            .setFooter({
-                text:
-                    `${type.toUpperCase()} PACK`
-            });
-
-        await interaction.editReply({
-            embeds: [finalEmbed]
-        });
     }
 };

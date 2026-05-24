@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "BRA1",
+    "name": "Diego Santos",
+    "selection": "Brasil",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BRA2",
+    "name": "Alex Pereira",
+    "selection": "Brasil",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BRA3",
+    "name": "Gabriel Costa",
+    "selection": "Brasil",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BRA4",
+    "name": "Gabriel Lima",
+    "selection": "Brasil",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BRA5",
+    "name": "Daniel Almeida",
+    "selection": "Brasil",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BRA6",
+    "name": "Miguel Costa",
+    "selection": "Brasil",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BRA7",
+    "name": "Carlos Almeida",
+    "selection": "Brasil",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BRA8",
+    "name": "Daniel Rodrigues",
+    "selection": "Brasil",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BRA9",
+    "name": "Rafael Santos",
+    "selection": "Brasil",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BRA10",
+    "name": "João Almeida",
+    "selection": "Brasil",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ARG1",
+    "name": "Pedro Pereira",
+    "selection": "Argentina",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARG2",
+    "name": "Bruno Oliveira",
+    "selection": "Argentina",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARG3",
+    "name": "Diego Almeida",
+    "selection": "Argentina",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARG4",
+    "name": "Gabriel Pereira",
+    "selection": "Argentina",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARG5",
+    "name": "Gabriel Santos",
+    "selection": "Argentina",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARG6",
+    "name": "Miguel Rodrigues",
+    "selection": "Argentina",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARG7",
+    "name": "Diego Silva",
+    "selection": "Argentina",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ARG8",
+    "name": "Leon Lima",
+    "selection": "Argentina",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ARG9",
+    "name": "Daniel Ferreira",
+    "selection": "Argentina",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ARG10",
+    "name": "Leon Silva",
+    "selection": "Argentina",
+    "rarity": "Épico"
+  },
+  {
+    "id": "FRA1",
+    "name": "Pedro Santos",
+    "selection": "França",
+    "rarity": "Comum"
+  },
+  {
+    "id": "FRA2",
+    "name": "Thiago Pereira",
+    "selection": "França",
+    "rarity": "Comum"
+  },
+  {
+    "id": "FRA3",
+    "name": "Pedro Rodrigues",
+    "selection": "França",
+    "rarity": "Comum"
+  },
+  {
+    "id": "FRA4",
+    "name": "Miguel Santos",
+    "selection": "França",
+    "rarity": "Comum"
+  },
+  {
+    "id": "FRA5",
+    "name": "Lucas Santos",
+    "selection": "França",
+    "rarity": "Comum"
+  },
+  {
+    "id": "FRA6",
+    "name": "Pedro Gomes",
+    "selection": "França",
+    "rarity": "Comum"
+  },
+  {
+    "id": "FRA7",
+    "name": "Rafael Almeida",
+    "selection": "França",
+    "rarity": "Raro"
+  },
+  {
+    "id": "FRA8",
+    "name": "Rafael Santos",
+    "selection": "França",
+    "rarity": "Raro"
+  },
+  {
+    "id": "FRA9",
+    "name": "Pedro Lima",
+    "selection": "França",
+    "rarity": "Raro"
+  },
+  {
+    "id": "FRA10",
+    "name": "Carlos Pereira",
+    "selection": "França",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ALE1",
+    "name": "Rafael Costa",
+    "selection": "Alemanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ALE2",
+    "name": "Mateus Oliveira",
+    "selection": "Alemanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ALE3",
+    "name": "Daniel Almeida",
+    "selection": "Alemanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ALE4",
+    "name": "Carlos Santos",
+    "selection": "Alemanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ALE5",
+    "name": "Miguel Lima",
+    "selection": "Alemanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ALE6",
+    "name": "João Pereira",
+    "selection": "Alemanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ALE7",
+    "name": "Daniel Rodrigues",
+    "selection": "Alemanha",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ALE8",
+    "name": "Lucas Lima",
+    "selection": "Alemanha",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ALE9",
+    "name": "Victor Ferreira",
+    "selection": "Alemanha",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ALE10",
+    "name": "Bruno Silva",
+    "selection": "Alemanha",
+    "rarity": "Épico"
+  },
+  {
+    "id": "POR1",
+    "name": "Gabriel Rodrigues",
+    "selection": "Portugal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POR2",
+    "name": "Leon Silva",
+    "selection": "Portugal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POR3",
+    "name": "Leon Pereira",
+    "selection": "Portugal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POR4",
+    "name": "Thiago Almeida",
+    "selection": "Portugal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POR5",
+    "name": "Rafael Gomes",
+    "selection": "Portugal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POR6",
+    "name": "Rafael Costa",
+    "selection": "Portugal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POR7",
+    "name": "Thiago Costa",
+    "selection": "Portugal",
+    "rarity": "Raro"
+  },
+  {
+    "id": "POR8",
+    "name": "Miguel Costa",
+    "selection": "Portugal",
+    "rarity": "Raro"
+  },
+  {
+    "id": "POR9",
+    "name": "Daniel Silva",
+    "selection": "Portugal",
+    "rarity": "Raro"
+  },
+  {
+    "id": "POR10",
+    "name": "Victor Lima",
+    "selection": "Portugal",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ESP1",
+    "name": "João Rodrigues",
+    "selection": "Espanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ESP2",
+    "name": "Mateus Silva",
+    "selection": "Espanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ESP3",
+    "name": "Leon Costa",
+    "selection": "Espanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ESP4",
+    "name": "Mateus Silva",
+    "selection": "Espanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ESP5",
+    "name": "Daniel Lima",
+    "selection": "Espanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ESP6",
+    "name": "Alex Ferreira",
+    "selection": "Espanha",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ESP7",
+    "name": "Leon Pereira",
+    "selection": "Espanha",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ESP8",
+    "name": "Thiago Lima",
+    "selection": "Espanha",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ESP9",
+    "name": "Lucas Gomes",
+    "selection": "Espanha",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ESP10",
+    "name": "Mateus Santos",
+    "selection": "Espanha",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ING1",
+    "name": "Alex Lima",
+    "selection": "Inglaterra",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ING2",
+    "name": "Daniel Santos",
+    "selection": "Inglaterra",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ING3",
+    "name": "Thiago Gomes",
+    "selection": "Inglaterra",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ING4",
+    "name": "Diego Lima",
+    "selection": "Inglaterra",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ING5",
+    "name": "Leon Pereira",
+    "selection": "Inglaterra",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ING6",
+    "name": "Daniel Ferreira",
+    "selection": "Inglaterra",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ING7",
+    "name": "Victor Santos",
+    "selection": "Inglaterra",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ING8",
+    "name": "Thiago Costa",
+    "selection": "Inglaterra",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ING9",
+    "name": "Victor Rodrigues",
+    "selection": "Inglaterra",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ING10",
+    "name": "João Costa",
+    "selection": "Inglaterra",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ITÁ1",
+    "name": "Carlos Almeida",
+    "selection": "Itália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ITÁ2",
+    "name": "Diego Almeida",
+    "selection": "Itália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ITÁ3",
+    "name": "Miguel Santos",
+    "selection": "Itália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ITÁ4",
+    "name": "Victor Silva",
+    "selection": "Itália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ITÁ5",
+    "name": "Victor Ferreira",
+    "selection": "Itália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ITÁ6",
+    "name": "Lucas Silva",
+    "selection": "Itália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ITÁ7",
+    "name": "João Rodrigues",
+    "selection": "Itália",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ITÁ8",
+    "name": "Daniel Ferreira",
+    "selection": "Itália",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ITÁ9",
+    "name": "Thiago Costa",
+    "selection": "Itália",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ITÁ10",
+    "name": "João Gomes",
+    "selection": "Itália",
+    "rarity": "Épico"
+  },
+  {
+    "id": "HOL1",
+    "name": "João Pereira",
+    "selection": "Holanda",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HOL2",
+    "name": "Victor Silva",
+    "selection": "Holanda",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HOL3",
+    "name": "Gabriel Silva",
+    "selection": "Holanda",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HOL4",
+    "name": "Diego Silva",
+    "selection": "Holanda",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HOL5",
+    "name": "Victor Costa",
+    "selection": "Holanda",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HOL6",
+    "name": "João Rodrigues",
+    "selection": "Holanda",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HOL7",
+    "name": "Victor Rodrigues",
+    "selection": "Holanda",
+    "rarity": "Raro"
+  },
+  {
+    "id": "HOL8",
+    "name": "Diego Silva",
+    "selection": "Holanda",
+    "rarity": "Raro"
+  },
+  {
+    "id": "HOL9",
+    "name": "Mateus Pereira",
+    "selection": "Holanda",
+    "rarity": "Raro"
+  },
+  {
+    "id": "HOL10",
+    "name": "Diego Almeida",
+    "selection": "Holanda",
+    "rarity": "Épico"
+  },
+  {
+    "id": "URU1",
+    "name": "Gabriel Almeida",
+    "selection": "Uruguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "URU2",
+    "name": "Alex Pereira",
+    "selection": "Uruguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "URU3",
+    "name": "Gabriel Costa",
+    "selection": "Uruguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "URU4",
+    "name": "Pedro Costa",
+    "selection": "Uruguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "URU5",
+    "name": "Mateus Almeida",
+    "selection": "Uruguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "URU6",
+    "name": "João Costa",
+    "selection": "Uruguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "URU7",
+    "name": "João Pereira",
+    "selection": "Uruguai",
+    "rarity": "Raro"
+  },
+  {
+    "id": "URU8",
+    "name": "Gabriel Gomes",
+    "selection": "Uruguai",
+    "rarity": "Raro"
+  },
+  {
+    "id": "URU9",
+    "name": "Victor Pereira",
+    "selection": "Uruguai",
+    "rarity": "Raro"
+  },
+  {
+    "id": "URU10",
+    "name": "Bruno Rodrigues",
+    "selection": "Uruguai",
+    "rarity": "Épico"
+  },
+  {
+    "id": "COL1",
+    "name": "João Gomes",
+    "selection": "Colômbia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COL2",
+    "name": "Rafael Ferreira",
+    "selection": "Colômbia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COL3",
+    "name": "Alex Santos",
+    "selection": "Colômbia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COL4",
+    "name": "Pedro Gomes",
+    "selection": "Colômbia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COL5",
+    "name": "Pedro Silva",
+    "selection": "Colômbia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COL6",
+    "name": "Miguel Rodrigues",
+    "selection": "Colômbia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COL7",
+    "name": "Mateus Santos",
+    "selection": "Colômbia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COL8",
+    "name": "Diego Rodrigues",
+    "selection": "Colômbia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COL9",
+    "name": "Thiago Pereira",
+    "selection": "Colômbia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COL10",
+    "name": "Gabriel Pereira",
+    "selection": "Colômbia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "MÉX1",
+    "name": "Daniel Pereira",
+    "selection": "México",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MÉX2",
+    "name": "Rafael Santos",
+    "selection": "México",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MÉX3",
+    "name": "Mateus Silva",
+    "selection": "México",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MÉX4",
+    "name": "Diego Rodrigues",
+    "selection": "México",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MÉX5",
+    "name": "Gabriel Costa",
+    "selection": "México",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MÉX6",
+    "name": "Carlos Gomes",
+    "selection": "México",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MÉX7",
+    "name": "Daniel Costa",
+    "selection": "México",
+    "rarity": "Raro"
+  },
+  {
+    "id": "MÉX8",
+    "name": "Lucas Santos",
+    "selection": "México",
+    "rarity": "Raro"
+  },
+  {
+    "id": "MÉX9",
+    "name": "Gabriel Lima",
+    "selection": "México",
+    "rarity": "Raro"
+  },
+  {
+    "id": "MÉX10",
+    "name": "Pedro Pereira",
+    "selection": "México",
+    "rarity": "Épico"
+  },
+  {
+    "id": "EST1",
+    "name": "Bruno Gomes",
+    "selection": "Estados Unidos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EST2",
+    "name": "Alex Rodrigues",
+    "selection": "Estados Unidos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EST3",
+    "name": "Leon Rodrigues",
+    "selection": "Estados Unidos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EST4",
+    "name": "Pedro Silva",
+    "selection": "Estados Unidos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EST5",
+    "name": "Mateus Ferreira",
+    "selection": "Estados Unidos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EST6",
+    "name": "Leon Costa",
+    "selection": "Estados Unidos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EST7",
+    "name": "Miguel Gomes",
+    "selection": "Estados Unidos",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EST8",
+    "name": "Daniel Silva",
+    "selection": "Estados Unidos",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EST9",
+    "name": "João Almeida",
+    "selection": "Estados Unidos",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EST10",
+    "name": "Mateus Almeida",
+    "selection": "Estados Unidos",
+    "rarity": "Épico"
+  },
+  {
+    "id": "BÉL1",
+    "name": "Lucas Santos",
+    "selection": "Bélgica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BÉL2",
+    "name": "João Silva",
+    "selection": "Bélgica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BÉL3",
+    "name": "Miguel Oliveira",
+    "selection": "Bélgica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BÉL4",
+    "name": "Victor Rodrigues",
+    "selection": "Bélgica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BÉL5",
+    "name": "Lucas Gomes",
+    "selection": "Bélgica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BÉL6",
+    "name": "Thiago Costa",
+    "selection": "Bélgica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BÉL7",
+    "name": "Victor Ferreira",
+    "selection": "Bélgica",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BÉL8",
+    "name": "Thiago Lima",
+    "selection": "Bélgica",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BÉL9",
+    "name": "Victor Silva",
+    "selection": "Bélgica",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BÉL10",
+    "name": "Rafael Santos",
+    "selection": "Bélgica",
+    "rarity": "Épico"
+  },
+  {
+    "id": "CRO1",
+    "name": "Carlos Ferreira",
+    "selection": "Croácia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CRO2",
+    "name": "Bruno Costa",
+    "selection": "Croácia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CRO3",
+    "name": "Leon Santos",
+    "selection": "Croácia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CRO4",
+    "name": "Leon Lima",
+    "selection": "Croácia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CRO5",
+    "name": "Victor Santos",
+    "selection": "Croácia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CRO6",
+    "name": "Carlos Gomes",
+    "selection": "Croácia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CRO7",
+    "name": "Bruno Ferreira",
+    "selection": "Croácia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CRO8",
+    "name": "Leon Oliveira",
+    "selection": "Croácia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CRO9",
+    "name": "Diego Costa",
+    "selection": "Croácia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CRO10",
+    "name": "Gabriel Silva",
+    "selection": "Croácia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "MAR1",
+    "name": "Mateus Gomes",
+    "selection": "Marrocos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MAR2",
+    "name": "Pedro Pereira",
+    "selection": "Marrocos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MAR3",
+    "name": "Pedro Rodrigues",
+    "selection": "Marrocos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MAR4",
+    "name": "Bruno Almeida",
+    "selection": "Marrocos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MAR5",
+    "name": "Daniel Gomes",
+    "selection": "Marrocos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MAR6",
+    "name": "João Oliveira",
+    "selection": "Marrocos",
+    "rarity": "Comum"
+  },
+  {
+    "id": "MAR7",
+    "name": "Miguel Pereira",
+    "selection": "Marrocos",
+    "rarity": "Raro"
+  },
+  {
+    "id": "MAR8",
+    "name": "Alex Gomes",
+    "selection": "Marrocos",
+    "rarity": "Raro"
+  },
+  {
+    "id": "MAR9",
+    "name": "Miguel Costa",
+    "selection": "Marrocos",
+    "rarity": "Raro"
+  },
+  {
+    "id": "MAR10",
+    "name": "Leon Rodrigues",
+    "selection": "Marrocos",
+    "rarity": "Épico"
+  },
+  {
+    "id": "JAP1",
+    "name": "Victor Lima",
+    "selection": "Japão",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAP2",
+    "name": "Leon Gomes",
+    "selection": "Japão",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAP3",
+    "name": "Gabriel Costa",
+    "selection": "Japão",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAP4",
+    "name": "Miguel Gomes",
+    "selection": "Japão",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAP5",
+    "name": "Leon Oliveira",
+    "selection": "Japão",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAP6",
+    "name": "Lucas Silva",
+    "selection": "Japão",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAP7",
+    "name": "Bruno Ferreira",
+    "selection": "Japão",
+    "rarity": "Raro"
+  },
+  {
+    "id": "JAP8",
+    "name": "Lucas Almeida",
+    "selection": "Japão",
+    "rarity": "Raro"
+  },
+  {
+    "id": "JAP9",
+    "name": "Daniel Rodrigues",
+    "selection": "Japão",
+    "rarity": "Raro"
+  },
+  {
+    "id": "JAP10",
+    "name": "Carlos Oliveira",
+    "selection": "Japão",
+    "rarity": "Épico"
+  },
+  {
+    "id": "COR1",
+    "name": "Miguel Rodrigues",
+    "selection": "Coreia do Sul",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COR2",
+    "name": "Leon Pereira",
+    "selection": "Coreia do Sul",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COR3",
+    "name": "Lucas Pereira",
+    "selection": "Coreia do Sul",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COR4",
+    "name": "Miguel Almeida",
+    "selection": "Coreia do Sul",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COR5",
+    "name": "Daniel Costa",
+    "selection": "Coreia do Sul",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COR6",
+    "name": "Leon Rodrigues",
+    "selection": "Coreia do Sul",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COR7",
+    "name": "Victor Costa",
+    "selection": "Coreia do Sul",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COR8",
+    "name": "Daniel Ferreira",
+    "selection": "Coreia do Sul",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COR9",
+    "name": "João Almeida",
+    "selection": "Coreia do Sul",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COR10",
+    "name": "Rafael Lima",
+    "selection": "Coreia do Sul",
+    "rarity": "Épico"
+  },
+  {
+    "id": "SEN1",
+    "name": "Miguel Gomes",
+    "selection": "Senegal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SEN2",
+    "name": "Alex Almeida",
+    "selection": "Senegal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SEN3",
+    "name": "Carlos Rodrigues",
+    "selection": "Senegal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SEN4",
+    "name": "Carlos Lima",
+    "selection": "Senegal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SEN5",
+    "name": "Lucas Oliveira",
+    "selection": "Senegal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SEN6",
+    "name": "Rafael Costa",
+    "selection": "Senegal",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SEN7",
+    "name": "Leon Oliveira",
+    "selection": "Senegal",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SEN8",
+    "name": "Thiago Ferreira",
+    "selection": "Senegal",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SEN9",
+    "name": "Miguel Pereira",
+    "selection": "Senegal",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SEN10",
+    "name": "Gabriel Ferreira",
+    "selection": "Senegal",
+    "rarity": "Épico"
+  },
+  {
+    "id": "SUÍ1",
+    "name": "João Almeida",
+    "selection": "Suíça",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÍ2",
+    "name": "Carlos Costa",
+    "selection": "Suíça",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÍ3",
+    "name": "Mateus Silva",
+    "selection": "Suíça",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÍ4",
+    "name": "Diego Ferreira",
+    "selection": "Suíça",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÍ5",
+    "name": "Mateus Rodrigues",
+    "selection": "Suíça",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÍ6",
+    "name": "João Lima",
+    "selection": "Suíça",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÍ7",
+    "name": "Daniel Rodrigues",
+    "selection": "Suíça",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SUÍ8",
+    "name": "Miguel Rodrigues",
+    "selection": "Suíça",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SUÍ9",
+    "name": "Lucas Ferreira",
+    "selection": "Suíça",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SUÍ10",
+    "name": "Diego Lima",
+    "selection": "Suíça",
+    "rarity": "Épico"
+  },
+  {
+    "id": "DIN1",
+    "name": "Bruno Costa",
+    "selection": "Dinamarca",
+    "rarity": "Comum"
+  },
+  {
+    "id": "DIN2",
+    "name": "Bruno Silva",
+    "selection": "Dinamarca",
+    "rarity": "Comum"
+  },
+  {
+    "id": "DIN3",
+    "name": "Pedro Pereira",
+    "selection": "Dinamarca",
+    "rarity": "Comum"
+  },
+  {
+    "id": "DIN4",
+    "name": "Leon Pereira",
+    "selection": "Dinamarca",
+    "rarity": "Comum"
+  },
+  {
+    "id": "DIN5",
+    "name": "Daniel Ferreira",
+    "selection": "Dinamarca",
+    "rarity": "Comum"
+  },
+  {
+    "id": "DIN6",
+    "name": "Leon Lima",
+    "selection": "Dinamarca",
+    "rarity": "Comum"
+  },
+  {
+    "id": "DIN7",
+    "name": "Carlos Costa",
+    "selection": "Dinamarca",
+    "rarity": "Raro"
+  },
+  {
+    "id": "DIN8",
+    "name": "Daniel Costa",
+    "selection": "Dinamarca",
+    "rarity": "Raro"
+  },
+  {
+    "id": "DIN9",
+    "name": "Pedro Lima",
+    "selection": "Dinamarca",
+    "rarity": "Raro"
+  },
+  {
+    "id": "DIN10",
+    "name": "Diego Silva",
+    "selection": "Dinamarca",
+    "rarity": "Épico"
+  },
+  {
+    "id": "NOR1",
+    "name": "Pedro Silva",
+    "selection": "Noruega",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NOR2",
+    "name": "João Oliveira",
+    "selection": "Noruega",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NOR3",
+    "name": "Victor Ferreira",
+    "selection": "Noruega",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NOR4",
+    "name": "Bruno Almeida",
+    "selection": "Noruega",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NOR5",
+    "name": "Alex Oliveira",
+    "selection": "Noruega",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NOR6",
+    "name": "Victor Ferreira",
+    "selection": "Noruega",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NOR7",
+    "name": "Rafael Pereira",
+    "selection": "Noruega",
+    "rarity": "Raro"
+  },
+  {
+    "id": "NOR8",
+    "name": "Bruno Silva",
+    "selection": "Noruega",
+    "rarity": "Raro"
+  },
+  {
+    "id": "NOR9",
+    "name": "Carlos Lima",
+    "selection": "Noruega",
+    "rarity": "Raro"
+  },
+  {
+    "id": "NOR10",
+    "name": "Carlos Silva",
+    "selection": "Noruega",
+    "rarity": "Épico"
+  },
+  {
+    "id": "SUÉ1",
+    "name": "Diego Rodrigues",
+    "selection": "Suécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÉ2",
+    "name": "João Ferreira",
+    "selection": "Suécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÉ3",
+    "name": "Victor Oliveira",
+    "selection": "Suécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÉ4",
+    "name": "Rafael Rodrigues",
+    "selection": "Suécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÉ5",
+    "name": "João Santos",
+    "selection": "Suécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÉ6",
+    "name": "Thiago Santos",
+    "selection": "Suécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SUÉ7",
+    "name": "Lucas Gomes",
+    "selection": "Suécia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SUÉ8",
+    "name": "Daniel Lima",
+    "selection": "Suécia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SUÉ9",
+    "name": "Thiago Almeida",
+    "selection": "Suécia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SUÉ10",
+    "name": "Lucas Pereira",
+    "selection": "Suécia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "POL1",
+    "name": "Lucas Silva",
+    "selection": "Polônia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POL2",
+    "name": "Gabriel Pereira",
+    "selection": "Polônia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POL3",
+    "name": "Pedro Oliveira",
+    "selection": "Polônia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POL4",
+    "name": "Victor Ferreira",
+    "selection": "Polônia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POL5",
+    "name": "Daniel Pereira",
+    "selection": "Polônia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POL6",
+    "name": "Lucas Lima",
+    "selection": "Polônia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "POL7",
+    "name": "Gabriel Almeida",
+    "selection": "Polônia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "POL8",
+    "name": "Miguel Lima",
+    "selection": "Polônia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "POL9",
+    "name": "Rafael Oliveira",
+    "selection": "Polônia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "POL10",
+    "name": "Mateus Silva",
+    "selection": "Polônia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "CHI1",
+    "name": "Thiago Ferreira",
+    "selection": "Chile",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CHI2",
+    "name": "Alex Gomes",
+    "selection": "Chile",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CHI3",
+    "name": "Mateus Silva",
+    "selection": "Chile",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CHI4",
+    "name": "Gabriel Silva",
+    "selection": "Chile",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CHI5",
+    "name": "Gabriel Gomes",
+    "selection": "Chile",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CHI6",
+    "name": "Leon Almeida",
+    "selection": "Chile",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CHI7",
+    "name": "Thiago Silva",
+    "selection": "Chile",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CHI8",
+    "name": "Mateus Santos",
+    "selection": "Chile",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CHI9",
+    "name": "Alex Lima",
+    "selection": "Chile",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CHI10",
+    "name": "João Almeida",
+    "selection": "Chile",
+    "rarity": "Épico"
+  },
+  {
+    "id": "PER1",
+    "name": "Rafael Santos",
+    "selection": "Peru",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PER2",
+    "name": "Diego Almeida",
+    "selection": "Peru",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PER3",
+    "name": "Mateus Pereira",
+    "selection": "Peru",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PER4",
+    "name": "Miguel Lima",
+    "selection": "Peru",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PER5",
+    "name": "Victor Ferreira",
+    "selection": "Peru",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PER6",
+    "name": "Gabriel Lima",
+    "selection": "Peru",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PER7",
+    "name": "Gabriel Pereira",
+    "selection": "Peru",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PER8",
+    "name": "Carlos Ferreira",
+    "selection": "Peru",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PER9",
+    "name": "Carlos Costa",
+    "selection": "Peru",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PER10",
+    "name": "Miguel Santos",
+    "selection": "Peru",
+    "rarity": "Épico"
+  },
+  {
+    "id": "EQU1",
+    "name": "Pedro Ferreira",
+    "selection": "Equador",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EQU2",
+    "name": "Daniel Pereira",
+    "selection": "Equador",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EQU3",
+    "name": "Mateus Almeida",
+    "selection": "Equador",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EQU4",
+    "name": "Diego Gomes",
+    "selection": "Equador",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EQU5",
+    "name": "Carlos Lima",
+    "selection": "Equador",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EQU6",
+    "name": "Thiago Costa",
+    "selection": "Equador",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EQU7",
+    "name": "Gabriel Ferreira",
+    "selection": "Equador",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EQU8",
+    "name": "Leon Ferreira",
+    "selection": "Equador",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EQU9",
+    "name": "Miguel Oliveira",
+    "selection": "Equador",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EQU10",
+    "name": "Leon Oliveira",
+    "selection": "Equador",
+    "rarity": "Épico"
+  },
+  {
+    "id": "PAR1",
+    "name": "Rafael Silva",
+    "selection": "Paraguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAR2",
+    "name": "Alex Ferreira",
+    "selection": "Paraguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAR3",
+    "name": "Rafael Rodrigues",
+    "selection": "Paraguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAR4",
+    "name": "Thiago Almeida",
+    "selection": "Paraguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAR5",
+    "name": "Gabriel Gomes",
+    "selection": "Paraguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAR6",
+    "name": "João Pereira",
+    "selection": "Paraguai",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAR7",
+    "name": "Miguel Pereira",
+    "selection": "Paraguai",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PAR8",
+    "name": "Rafael Silva",
+    "selection": "Paraguai",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PAR9",
+    "name": "Lucas Almeida",
+    "selection": "Paraguai",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PAR10",
+    "name": "Pedro Ferreira",
+    "selection": "Paraguai",
+    "rarity": "Épico"
+  },
+  {
+    "id": "BOL1",
+    "name": "Alex Ferreira",
+    "selection": "Bolívia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BOL2",
+    "name": "Daniel Gomes",
+    "selection": "Bolívia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BOL3",
+    "name": "Bruno Ferreira",
+    "selection": "Bolívia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BOL4",
+    "name": "Lucas Lima",
+    "selection": "Bolívia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BOL5",
+    "name": "Miguel Oliveira",
+    "selection": "Bolívia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BOL6",
+    "name": "Bruno Costa",
+    "selection": "Bolívia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "BOL7",
+    "name": "Pedro Costa",
+    "selection": "Bolívia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BOL8",
+    "name": "Daniel Rodrigues",
+    "selection": "Bolívia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BOL9",
+    "name": "Victor Gomes",
+    "selection": "Bolívia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "BOL10",
+    "name": "Victor Rodrigues",
+    "selection": "Bolívia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ÁUS1",
+    "name": "João Almeida",
+    "selection": "Áustria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ÁUS2",
+    "name": "Lucas Costa",
+    "selection": "Áustria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ÁUS3",
+    "name": "Leon Oliveira",
+    "selection": "Áustria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ÁUS4",
+    "name": "João Gomes",
+    "selection": "Áustria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ÁUS5",
+    "name": "Bruno Silva",
+    "selection": "Áustria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ÁUS6",
+    "name": "João Rodrigues",
+    "selection": "Áustria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ÁUS7",
+    "name": "Bruno Almeida",
+    "selection": "Áustria",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ÁUS8",
+    "name": "Daniel Silva",
+    "selection": "Áustria",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ÁUS9",
+    "name": "Rafael Almeida",
+    "selection": "Áustria",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ÁUS10",
+    "name": "Pedro Santos",
+    "selection": "Áustria",
+    "rarity": "Épico"
+  },
+  {
+    "id": "SÉR1",
+    "name": "Mateus Lima",
+    "selection": "Sérvia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SÉR2",
+    "name": "Victor Santos",
+    "selection": "Sérvia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SÉR3",
+    "name": "Diego Rodrigues",
+    "selection": "Sérvia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SÉR4",
+    "name": "Victor Lima",
+    "selection": "Sérvia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SÉR5",
+    "name": "Mateus Gomes",
+    "selection": "Sérvia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SÉR6",
+    "name": "Miguel Costa",
+    "selection": "Sérvia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "SÉR7",
+    "name": "Thiago Almeida",
+    "selection": "Sérvia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SÉR8",
+    "name": "Mateus Rodrigues",
+    "selection": "Sérvia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SÉR9",
+    "name": "Diego Santos",
+    "selection": "Sérvia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "SÉR10",
+    "name": "Leon Pereira",
+    "selection": "Sérvia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "TUR1",
+    "name": "Diego Pereira",
+    "selection": "Turquia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUR2",
+    "name": "João Oliveira",
+    "selection": "Turquia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUR3",
+    "name": "Bruno Silva",
+    "selection": "Turquia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUR4",
+    "name": "Miguel Lima",
+    "selection": "Turquia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUR5",
+    "name": "Rafael Lima",
+    "selection": "Turquia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUR6",
+    "name": "Diego Santos",
+    "selection": "Turquia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUR7",
+    "name": "Lucas Oliveira",
+    "selection": "Turquia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "TUR8",
+    "name": "Thiago Costa",
+    "selection": "Turquia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "TUR9",
+    "name": "Mateus Oliveira",
+    "selection": "Turquia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "TUR10",
+    "name": "Lucas Lima",
+    "selection": "Turquia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "RÚS1",
+    "name": "Gabriel Ferreira",
+    "selection": "Rússia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "RÚS2",
+    "name": "Alex Lima",
+    "selection": "Rússia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "RÚS3",
+    "name": "Diego Pereira",
+    "selection": "Rússia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "RÚS4",
+    "name": "Thiago Oliveira",
+    "selection": "Rússia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "RÚS5",
+    "name": "Lucas Oliveira",
+    "selection": "Rússia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "RÚS6",
+    "name": "Carlos Oliveira",
+    "selection": "Rússia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "RÚS7",
+    "name": "Victor Pereira",
+    "selection": "Rússia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "RÚS8",
+    "name": "Pedro Gomes",
+    "selection": "Rússia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "RÚS9",
+    "name": "Lucas Lima",
+    "selection": "Rússia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "RÚS10",
+    "name": "Rafael Rodrigues",
+    "selection": "Rússia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "GRÉ1",
+    "name": "Leon Costa",
+    "selection": "Grécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "GRÉ2",
+    "name": "Carlos Gomes",
+    "selection": "Grécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "GRÉ3",
+    "name": "Gabriel Costa",
+    "selection": "Grécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "GRÉ4",
+    "name": "Miguel Costa",
+    "selection": "Grécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "GRÉ5",
+    "name": "Pedro Costa",
+    "selection": "Grécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "GRÉ6",
+    "name": "Diego Oliveira",
+    "selection": "Grécia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "GRÉ7",
+    "name": "Bruno Pereira",
+    "selection": "Grécia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "GRÉ8",
+    "name": "Thiago Gomes",
+    "selection": "Grécia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "GRÉ9",
+    "name": "Mateus Rodrigues",
+    "selection": "Grécia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "GRÉ10",
+    "name": "Rafael Almeida",
+    "selection": "Grécia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "CAM1",
+    "name": "Bruno Lima",
+    "selection": "Camarões",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAM2",
+    "name": "Bruno Gomes",
+    "selection": "Camarões",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAM3",
+    "name": "Lucas Costa",
+    "selection": "Camarões",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAM4",
+    "name": "Lucas Oliveira",
+    "selection": "Camarões",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAM5",
+    "name": "Leon Silva",
+    "selection": "Camarões",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAM6",
+    "name": "Alex Pereira",
+    "selection": "Camarões",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAM7",
+    "name": "Mateus Santos",
+    "selection": "Camarões",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CAM8",
+    "name": "Lucas Oliveira",
+    "selection": "Camarões",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CAM9",
+    "name": "Mateus Pereira",
+    "selection": "Camarões",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CAM10",
+    "name": "Lucas Almeida",
+    "selection": "Camarões",
+    "rarity": "Épico"
+  },
+  {
+    "id": "NIG1",
+    "name": "Leon Gomes",
+    "selection": "Nigéria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NIG2",
+    "name": "Mateus Lima",
+    "selection": "Nigéria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NIG3",
+    "name": "Bruno Silva",
+    "selection": "Nigéria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NIG4",
+    "name": "Thiago Pereira",
+    "selection": "Nigéria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NIG5",
+    "name": "Gabriel Pereira",
+    "selection": "Nigéria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NIG6",
+    "name": "Gabriel Silva",
+    "selection": "Nigéria",
+    "rarity": "Comum"
+  },
+  {
+    "id": "NIG7",
+    "name": "Mateus Oliveira",
+    "selection": "Nigéria",
+    "rarity": "Raro"
+  },
+  {
+    "id": "NIG8",
+    "name": "Miguel Pereira",
+    "selection": "Nigéria",
+    "rarity": "Raro"
+  },
+  {
+    "id": "NIG9",
+    "name": "Diego Silva",
+    "selection": "Nigéria",
+    "rarity": "Raro"
+  },
+  {
+    "id": "NIG10",
+    "name": "Bruno Santos",
+    "selection": "Nigéria",
+    "rarity": "Épico"
+  },
+  {
+    "id": "COS1",
+    "name": "Alex Costa",
+    "selection": "Costa do Marfim",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COS2",
+    "name": "Bruno Lima",
+    "selection": "Costa do Marfim",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COS3",
+    "name": "Leon Santos",
+    "selection": "Costa do Marfim",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COS4",
+    "name": "Victor Rodrigues",
+    "selection": "Costa do Marfim",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COS5",
+    "name": "Pedro Lima",
+    "selection": "Costa do Marfim",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COS6",
+    "name": "Pedro Oliveira",
+    "selection": "Costa do Marfim",
+    "rarity": "Comum"
+  },
+  {
+    "id": "COS7",
+    "name": "Pedro Oliveira",
+    "selection": "Costa do Marfim",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COS8",
+    "name": "Diego Almeida",
+    "selection": "Costa do Marfim",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COS9",
+    "name": "Leon Costa",
+    "selection": "Costa do Marfim",
+    "rarity": "Raro"
+  },
+  {
+    "id": "COS10",
+    "name": "Bruno Pereira",
+    "selection": "Costa do Marfim",
+    "rarity": "Épico"
+  },
+  {
+    "id": "AUS1",
+    "name": "Gabriel Costa",
+    "selection": "Austrália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "AUS2",
+    "name": "João Santos",
+    "selection": "Austrália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "AUS3",
+    "name": "João Costa",
+    "selection": "Austrália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "AUS4",
+    "name": "Alex Pereira",
+    "selection": "Austrália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "AUS5",
+    "name": "Bruno Costa",
+    "selection": "Austrália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "AUS6",
+    "name": "Gabriel Gomes",
+    "selection": "Austrália",
+    "rarity": "Comum"
+  },
+  {
+    "id": "AUS7",
+    "name": "Bruno Silva",
+    "selection": "Austrália",
+    "rarity": "Raro"
+  },
+  {
+    "id": "AUS8",
+    "name": "João Pereira",
+    "selection": "Austrália",
+    "rarity": "Raro"
+  },
+  {
+    "id": "AUS9",
+    "name": "Lucas Rodrigues",
+    "selection": "Austrália",
+    "rarity": "Raro"
+  },
+  {
+    "id": "AUS10",
+    "name": "Alex Pereira",
+    "selection": "Austrália",
+    "rarity": "Épico"
+  },
+  {
+    "id": "ARÁ1",
+    "name": "Daniel Lima",
+    "selection": "Arábia Saudita",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARÁ2",
+    "name": "Pedro Silva",
+    "selection": "Arábia Saudita",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARÁ3",
+    "name": "Miguel Oliveira",
+    "selection": "Arábia Saudita",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARÁ4",
+    "name": "Pedro Santos",
+    "selection": "Arábia Saudita",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARÁ5",
+    "name": "Gabriel Ferreira",
+    "selection": "Arábia Saudita",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARÁ6",
+    "name": "Thiago Santos",
+    "selection": "Arábia Saudita",
+    "rarity": "Comum"
+  },
+  {
+    "id": "ARÁ7",
+    "name": "Mateus Costa",
+    "selection": "Arábia Saudita",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ARÁ8",
+    "name": "Bruno Pereira",
+    "selection": "Arábia Saudita",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ARÁ9",
+    "name": "Daniel Silva",
+    "selection": "Arábia Saudita",
+    "rarity": "Raro"
+  },
+  {
+    "id": "ARÁ10",
+    "name": "Bruno Ferreira",
+    "selection": "Arábia Saudita",
+    "rarity": "Épico"
+  },
+  {
+    "id": "IRÃ1",
+    "name": "Pedro Pereira",
+    "selection": "Irã",
+    "rarity": "Comum"
+  },
+  {
+    "id": "IRÃ2",
+    "name": "Alex Gomes",
+    "selection": "Irã",
+    "rarity": "Comum"
+  },
+  {
+    "id": "IRÃ3",
+    "name": "Miguel Pereira",
+    "selection": "Irã",
+    "rarity": "Comum"
+  },
+  {
+    "id": "IRÃ4",
+    "name": "Thiago Almeida",
+    "selection": "Irã",
+    "rarity": "Comum"
+  },
+  {
+    "id": "IRÃ5",
+    "name": "Victor Almeida",
+    "selection": "Irã",
+    "rarity": "Comum"
+  },
+  {
+    "id": "IRÃ6",
+    "name": "Alex Rodrigues",
+    "selection": "Irã",
+    "rarity": "Comum"
+  },
+  {
+    "id": "IRÃ7",
+    "name": "Gabriel Ferreira",
+    "selection": "Irã",
+    "rarity": "Raro"
+  },
+  {
+    "id": "IRÃ8",
+    "name": "Gabriel Pereira",
+    "selection": "Irã",
+    "rarity": "Raro"
+  },
+  {
+    "id": "IRÃ9",
+    "name": "Lucas Ferreira",
+    "selection": "Irã",
+    "rarity": "Raro"
+  },
+  {
+    "id": "IRÃ10",
+    "name": "Carlos Rodrigues",
+    "selection": "Irã",
+    "rarity": "Épico"
+  },
+  {
+    "id": "TUN1",
+    "name": "João Santos",
+    "selection": "Tunísia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUN2",
+    "name": "Carlos Pereira",
+    "selection": "Tunísia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUN3",
+    "name": "Alex Gomes",
+    "selection": "Tunísia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUN4",
+    "name": "Mateus Costa",
+    "selection": "Tunísia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUN5",
+    "name": "Rafael Silva",
+    "selection": "Tunísia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUN6",
+    "name": "Diego Ferreira",
+    "selection": "Tunísia",
+    "rarity": "Comum"
+  },
+  {
+    "id": "TUN7",
+    "name": "Lucas Oliveira",
+    "selection": "Tunísia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "TUN8",
+    "name": "Leon Gomes",
+    "selection": "Tunísia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "TUN9",
+    "name": "Miguel Pereira",
+    "selection": "Tunísia",
+    "rarity": "Raro"
+  },
+  {
+    "id": "TUN10",
+    "name": "Pedro Ferreira",
+    "selection": "Tunísia",
+    "rarity": "Épico"
+  },
+  {
+    "id": "EGI1",
+    "name": "Leon Pereira",
+    "selection": "Egito",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EGI2",
+    "name": "Rafael Costa",
+    "selection": "Egito",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EGI3",
+    "name": "Diego Ferreira",
+    "selection": "Egito",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EGI4",
+    "name": "Pedro Pereira",
+    "selection": "Egito",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EGI5",
+    "name": "Leon Rodrigues",
+    "selection": "Egito",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EGI6",
+    "name": "Pedro Santos",
+    "selection": "Egito",
+    "rarity": "Comum"
+  },
+  {
+    "id": "EGI7",
+    "name": "Victor Gomes",
+    "selection": "Egito",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EGI8",
+    "name": "Alex Costa",
+    "selection": "Egito",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EGI9",
+    "name": "Gabriel Gomes",
+    "selection": "Egito",
+    "rarity": "Raro"
+  },
+  {
+    "id": "EGI10",
+    "name": "Gabriel Oliveira",
+    "selection": "Egito",
+    "rarity": "Épico"
+  },
+  {
+    "id": "CAN1",
+    "name": "Lucas Silva",
+    "selection": "Canadá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAN2",
+    "name": "Victor Costa",
+    "selection": "Canadá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAN3",
+    "name": "Miguel Silva",
+    "selection": "Canadá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAN4",
+    "name": "Daniel Ferreira",
+    "selection": "Canadá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAN5",
+    "name": "Daniel Ferreira",
+    "selection": "Canadá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAN6",
+    "name": "Carlos Gomes",
+    "selection": "Canadá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "CAN7",
+    "name": "Daniel Pereira",
+    "selection": "Canadá",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CAN8",
+    "name": "Diego Lima",
+    "selection": "Canadá",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CAN9",
+    "name": "Miguel Lima",
+    "selection": "Canadá",
+    "rarity": "Raro"
+  },
+  {
+    "id": "CAN10",
+    "name": "Victor Pereira",
+    "selection": "Canadá",
+    "rarity": "Épico"
+  },
+  {
+    "id": "JAM1",
+    "name": "Thiago Ferreira",
+    "selection": "Jamaica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAM2",
+    "name": "Victor Santos",
+    "selection": "Jamaica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAM3",
+    "name": "Gabriel Lima",
+    "selection": "Jamaica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAM4",
+    "name": "Carlos Lima",
+    "selection": "Jamaica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAM5",
+    "name": "João Gomes",
+    "selection": "Jamaica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAM6",
+    "name": "Daniel Gomes",
+    "selection": "Jamaica",
+    "rarity": "Comum"
+  },
+  {
+    "id": "JAM7",
+    "name": "Lucas Silva",
+    "selection": "Jamaica",
+    "rarity": "Raro"
+  },
+  {
+    "id": "JAM8",
+    "name": "Diego Silva",
+    "selection": "Jamaica",
+    "rarity": "Raro"
+  },
+  {
+    "id": "JAM9",
+    "name": "Alex Lima",
+    "selection": "Jamaica",
+    "rarity": "Raro"
+  },
+  {
+    "id": "JAM10",
+    "name": "Miguel Silva",
+    "selection": "Jamaica",
+    "rarity": "Épico"
+  },
+  {
+    "id": "PAN1",
+    "name": "Miguel Almeida",
+    "selection": "Panamá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAN2",
+    "name": "Bruno Gomes",
+    "selection": "Panamá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAN3",
+    "name": "João Almeida",
+    "selection": "Panamá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAN4",
+    "name": "Diego Rodrigues",
+    "selection": "Panamá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAN5",
+    "name": "João Rodrigues",
+    "selection": "Panamá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAN6",
+    "name": "Gabriel Oliveira",
+    "selection": "Panamá",
+    "rarity": "Comum"
+  },
+  {
+    "id": "PAN7",
+    "name": "Carlos Pereira",
+    "selection": "Panamá",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PAN8",
+    "name": "Leon Oliveira",
+    "selection": "Panamá",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PAN9",
+    "name": "Bruno Almeida",
+    "selection": "Panamá",
+    "rarity": "Raro"
+  },
+  {
+    "id": "PAN10",
+    "name": "Daniel Oliveira",
+    "selection": "Panamá",
+    "rarity": "Épico"
+  },
+  {
+    "id": "HON1",
+    "name": "Gabriel Ferreira",
+    "selection": "Honduras",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HON2",
+    "name": "Thiago Santos",
+    "selection": "Honduras",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HON3",
+    "name": "João Silva",
+    "selection": "Honduras",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HON4",
+    "name": "Daniel Almeida",
+    "selection": "Honduras",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HON5",
+    "name": "Rafael Silva",
+    "selection": "Honduras",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HON6",
+    "name": "Diego Ferreira",
+    "selection": "Honduras",
+    "rarity": "Comum"
+  },
+  {
+    "id": "HON7",
+    "name": "Lucas Ferreira",
+    "selection": "Honduras",
+    "rarity": "Raro"
+  },
+  {
+    "id": "HON8",
+    "name": "Lucas Oliveira",
+    "selection": "Honduras",
+    "rarity": "Raro"
+  },
+  {
+    "id": "HON9",
+    "name": "Miguel Oliveira",
+    "selection": "Honduras",
+    "rarity": "Raro"
+  },
+  {
+    "id": "HON10",
+    "name": "Alex Rodrigues",
+    "selection": "Honduras",
+    "rarity": "Épico"
+  },
+  {
+    "id": "VEN1",
+    "name": "Pedro Santos",
+    "selection": "Venezuela",
+    "rarity": "Comum"
+  },
+  {
+    "id": "VEN2",
+    "name": "João Pereira",
+    "selection": "Venezuela",
+    "rarity": "Comum"
+  },
+  {
+    "id": "VEN3",
+    "name": "Victor Gomes",
+    "selection": "Venezuela",
+    "rarity": "Comum"
+  },
+  {
+    "id": "VEN4",
+    "name": "Carlos Rodrigues",
+    "selection": "Venezuela",
+    "rarity": "Comum"
+  },
+  {
+    "id": "VEN5",
+    "name": "Leon Lima",
+    "selection": "Venezuela",
+    "rarity": "Comum"
+  },
+  {
+    "id": "VEN6",
+    "name": "Miguel Lima",
+    "selection": "Venezuela",
+    "rarity": "Comum"
+  },
+  {
+    "id": "VEN7",
+    "name": "Diego Pereira",
+    "selection": "Venezuela",
+    "rarity": "Raro"
+  },
+  {
+    "id": "VEN8",
+    "name": "Lucas Gomes",
+    "selection": "Venezuela",
+    "rarity": "Raro"
+  },
+  {
+    "id": "VEN9",
+    "name": "João Santos",
+    "selection": "Venezuela",
+    "rarity": "Raro"
+  },
+  {
+    "id": "VEN10",
+    "name": "João Costa",
+    "selection": "Venezuela",
+    "rarity": "Épico"
+  },
+  {
+    "id": "LEG1",
+    "name": "Zidane ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG2",
+    "name": "Zidane ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG3",
+    "name": "Maradona ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG4",
+    "name": "Zidane ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG5",
+    "name": "Cristiano ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG6",
+    "name": "Pelé ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG7",
+    "name": "Maradona ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG8",
+    "name": "Cristiano ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG9",
+    "name": "Cristiano ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "LEG10",
+    "name": "Zidane ICON",
+    "selection": "Lendárias",
+    "rarity": "Lendário"
+  },
+  {
+    "id": "MYT1",
+    "name": "Lenda Imortal",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT2",
+    "name": "Fantasma Dourado",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT3",
+    "name": "Lenda Imortal",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT4",
+    "name": "Caos Absoluto",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT5",
+    "name": "Titã Supremo",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT6",
+    "name": "Deus do Futebol",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT7",
+    "name": "Titã Supremo",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT8",
+    "name": "Lenda Imortal",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT9",
+    "name": "Titã Supremo",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  },
+  {
+    "id": "MYT10",
+    "name": "Deus do Futebol",
+    "selection": "Míticas",
+    "rarity": "Mítico"
+  }
+]

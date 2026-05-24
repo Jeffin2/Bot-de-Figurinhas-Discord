@@ -1,12 +1,8 @@
-require('dotenv').config();
+const fs = require("fs");
+const path = require("path");
+const { Client, Collection, GatewayIntentBits } = require("discord.js");
 
-const fs = require('fs');
-
-const {
-    Client,
-    GatewayIntentBits,
-    Collection
-} = require('discord.js');
+require("dotenv").config();
 
 const client = new Client({
     intents: [
@@ -16,56 +12,67 @@ const client = new Client({
 
 client.commands = new Collection();
 
-const commandFolders = fs.readdirSync('./src/commands');
+console.log("🔄 Carregando comandos...");
+
+// 📁 Carrega comandos automaticamente
+const commandsPath = path.join(__dirname, "src/commands");
+
+const commandFolders = fs.readdirSync(commandsPath);
 
 for (const folder of commandFolders) {
 
-    const commandFiles = fs
-        .readdirSync(`./src/commands/${folder}`)
-        .filter(file => file.endsWith('.js'));
+    const folderPath = path.join(commandsPath, folder);
+
+    const commandFiles = fs.readdirSync(folderPath).filter(file => file.endsWith(".js"));
 
     for (const file of commandFiles) {
 
-        const command = require(`./src/commands/${folder}/${file}`);
+        const filePath = path.join(folderPath, file);
 
-        client.commands.set(command.data.name, command);
+        const command = require(filePath);
 
-        console.log(`✅ Comando carregado: ${command.data.name}`);
+        if (!command.name || !command.execute) {
+            console.log(`⚠️ Comando inválido: ${file}`);
+            continue;
+        }
+
+        client.commands.set(command.name, command);
+        console.log(`✅ Comando carregado: ${command.name}`);
     }
 }
 
-client.once('ready', () => {
-
-    console.log(`🚀 ${client.user.tag} está online!`);
+// 🎯 Quando bot inicia
+client.once("ready", () => {
+    console.log(`🤖 Bot online como ${client.user.tag}`);
 });
 
-client.on('interactionCreate', async interaction => {
+// ⚡ Interactions (SLASH COMMANDS SIMPLES)
+client.on("interactionCreate", async (interaction) => {
 
     if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
 
-    if (!command) return;
+    if (!command) {
+        return interaction.reply({
+            content: "❌ Comando não encontrado.",
+            ephemeral: true
+        });
+    }
 
     try {
-
         await command.execute(interaction);
-
-    } catch (error) {
-
-        console.error(error);
+    } catch (err) {
+        console.error("❌ Erro no comando:", err);
 
         if (interaction.replied || interaction.deferred) {
-
             await interaction.followUp({
-                content: '❌ Erro ao executar comando.',
+                content: "❌ Erro ao executar comando.",
                 ephemeral: true
             });
-
         } else {
-
             await interaction.reply({
-                content: '❌ Erro ao executar comando.',
+                content: "❌ Erro ao executar comando.",
                 ephemeral: true
             });
         }
