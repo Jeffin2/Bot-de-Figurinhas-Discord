@@ -1,82 +1,63 @@
-const fs = require("fs");
-const path = require("path");
-const { Client, Collection, GatewayIntentBits } = require("discord.js");
+require('dotenv').config();
 
-require("dotenv").config();
+const fs = require('fs');
+const path = require('path');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds
-    ]
+    intents: [GatewayIntentBits.Guilds]
 });
 
 client.commands = new Collection();
 
+const commandsPath = path.join(__dirname, 'src', 'commands');
+const commandFiles = fs.readdirSync(commandsPath, { recursive: true });
+
 console.log("🔄 Carregando comandos...");
 
-// 📁 Carrega comandos automaticamente
-const commandsPath = path.join(__dirname, "src/commands");
+for (const file of commandFiles) {
 
-const commandFolders = fs.readdirSync(commandsPath);
+    if (!file.endsWith('.js')) continue;
 
-for (const folder of commandFolders) {
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
 
-    const folderPath = path.join(commandsPath, folder);
-
-    const commandFiles = fs.readdirSync(folderPath).filter(file => file.endsWith(".js"));
-
-    for (const file of commandFiles) {
-
-        const filePath = path.join(folderPath, file);
-
-        const command = require(filePath);
-
-        if (!command.name || !command.execute) {
-            console.log(`⚠️ Comando inválido: ${file}`);
-            continue;
-        }
-
-        client.commands.set(command.name, command);
-        console.log(`✅ Comando carregado: ${command.name}`);
+    if (!command.data || !command.data.name) {
+        console.log(`⚠️ Comando inválido: ${file}`);
+        continue;
     }
+
+    client.commands.set(command.data.name, command);
+    console.log(`✅ Carregado: ${command.data.name}`);
 }
 
-// 🎯 Quando bot inicia
-client.once("ready", () => {
+// 🔥 BOT ONLINE EVENT (ESSENCIAL)
+client.once('ready', () => {
     console.log(`🤖 Bot online como ${client.user.tag}`);
 });
 
-// ⚡ Interactions (SLASH COMMANDS SIMPLES)
-client.on("interactionCreate", async (interaction) => {
+// 🎯 INTERAÇÕES (SLASH COMMANDS)
+client.on('interactionCreate', async interaction => {
 
     if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
 
-    if (!command) {
-        return interaction.reply({
-            content: "❌ Comando não encontrado.",
-            ephemeral: true
-        });
-    }
+    if (!command) return;
 
     try {
         await command.execute(interaction);
     } catch (err) {
-        console.error("❌ Erro no comando:", err);
+        console.error(err);
 
-        if (interaction.replied || interaction.deferred) {
-            await interaction.followUp({
-                content: "❌ Erro ao executar comando.",
-                ephemeral: true
-            });
-        } else {
-            await interaction.reply({
-                content: "❌ Erro ao executar comando.",
-                ephemeral: true
-            });
-        }
+        if (interaction.replied || interaction.deferred) return;
+
+        await interaction.reply({
+            content: "❌ Erro ao executar comando.",
+            ephemeral: true
+        });
     }
 });
 
+// 🔑 LOGIN
 client.login(process.env.TOKEN);
