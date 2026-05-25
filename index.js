@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 require('dotenv').config();
 
 const fs = require('fs');
@@ -31,12 +34,12 @@ for (const file of commandFiles) {
     console.log(`✅ Carregado: ${command.data.name}`);
 }
 
-// 🔥 BOT ONLINE EVENT (ESSENCIAL)
+// 🔥 BOT ONLINE
 client.once('ready', () => {
     console.log(`🤖 Bot online como ${client.user.tag}`);
 });
 
-// 🎯 INTERAÇÕES (SLASH COMMANDS)
+// 🎯 INTERAÇÕES
 client.on('interactionCreate', async interaction => {
 
     if (!interaction.isChatInputCommand()) return;
@@ -47,7 +50,9 @@ client.on('interactionCreate', async interaction => {
 
     try {
         await command.execute(interaction);
+
     } catch (err) {
+
         console.error(err);
 
         if (interaction.replied || interaction.deferred) return;
@@ -59,5 +64,18 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
+// 🌐 WEB SERVER
+app.get('/', (req, res) => {
+    res.send('FiguVerse online!');
+});
+
+app.listen(3000, () => {
+    console.log('🌐 Servidor web iniciado');
+});
+
 // 🔑 LOGIN
 client.login(process.env.TOKEN);
+
+// 🛡️ ANTI-CRASH
+process.on('unhandledRejection', console.error);
+process.on('uncaughtException', console.error);

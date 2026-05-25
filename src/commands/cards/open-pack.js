@@ -52,6 +52,19 @@ module.exports = {
 
         const userId = interaction.user.id;
 
+        // 📦 CHECK PACKS (CORREÇÃO PRINCIPAL)
+        let packs = await db.get(`packs_${userId}`) || 0;
+
+        if (packs <= 0) {
+            return interaction.reply({
+                content: "❌ Você não tem pacotes para abrir.",
+                ephemeral: true
+            });
+        }
+
+        // 💸 REMOVE 1 PACK (ANTI EXPLOIT)
+        await db.set(`packs_${userId}`, packs - 1);
+
         const type = interaction.options.getString("tipo") || "normal";
 
         let boost = 1;
