@@ -56,7 +56,6 @@ module.exports = {
         if (sub === "list") {
 
             const auctions = await db.get("auctions_all") || {};
-
             const entries = Object.entries(auctions);
 
             if (entries.length === 0) {
@@ -71,10 +70,11 @@ module.exports = {
                 const card = cards.find(c => c.id === a.cardId);
 
                 return `🏷️ ID: ${id}
-🎴 ${card?.name}
-💰 Maior lance: ${a.currentBid || a.min} coins
+🎴 ${card?.name || "Carta desconhecida"}
+💰 Maior lance: ${a.currentBid ?? a.min} coins
 👤 <@${a.highestBidder || a.sellerId}>
 ⏳ Termina: <t:${Math.floor(a.endTime / 1000)}:R>`;
+
             }).join("\n\n");
 
             return interaction.reply({
@@ -82,7 +82,7 @@ module.exports = {
                     new EmbedBuilder()
                         .setTitle("🏷️ Leilões Ativos")
                         .setColor("#FFD700")
-                        .setDescription(text)
+                        .setDescription(text || "Nenhum leilão encontrado.")
                 ]
             });
         }
@@ -95,7 +95,7 @@ module.exports = {
 
             let inventory = await db.get(`inventory_${userId}`) || {};
 
-            if (!inventory[cardId]) {
+            if (!inventory[cardId] || inventory[cardId] <= 0) {
                 return interaction.reply({
                     content: "❌ Você não tem essa carta.",
                     ephemeral: true
@@ -110,7 +110,7 @@ module.exports = {
                 min,
                 currentBid: min,
                 highestBidder: null,
-                endTime: Date.now() + 5 * 60 * 1000 // 5 min
+                endTime: Date.now() + 5 * 60 * 1000
             };
 
             let auctions = await db.get("auctions_all") || {};
@@ -124,7 +124,8 @@ module.exports = {
             await db.set("auctions_all", auctions);
 
             return interaction.reply({
-                content: `🏷️ Leilão criado com sucesso! ID: ${id}`
+                content: `🏷️ Leilão criado com sucesso! ID: ${id}`,
+                ephemeral: true
             });
         }
 
@@ -174,7 +175,8 @@ module.exports = {
             await db.set("auctions_all", auctions);
 
             return interaction.reply({
-                content: `💰 Lance de ${value} coins registrado!`
+                content: `💰 Lance de ${value} coins registrado!`,
+                ephemeral: true
             });
         }
     }

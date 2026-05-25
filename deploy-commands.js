@@ -1,41 +1,70 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
+const { REST, Routes } = require('discord.js');
+require('dotenv').config();
 
 const commands = [];
 
-const foldersPath = path.join(__dirname, "src/commands");
-const commandFolders = fs.readdirSync(foldersPath);
+// 📂 caminho base dos comandos
+const commandsPath = path.join(__dirname, 'src', 'commands');
 
-for (const folder of commandFolders) {
+// 🔁 função recursiva para pegar arquivos
+function getCommandFiles(dir) {
+    let results = [];
 
-    const commandsPath = path.join(foldersPath, folder);
+    const files = fs.readdirSync(dir);
 
-    const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"));
+    for (const file of files) {
 
-    for (const file of commandFiles) {
+        const fullPath = path.join(dir, file);
 
-        const filePath = path.join(commandsPath, file);
+        if (fs.lstatSync(fullPath).isDirectory()) {
+            results = results.concat(getCommandFiles(fullPath));
+        } else if (file.endsWith('.js')) {
+            results.push(fullPath);
+        }
+    }
 
-        const command = require(filePath);
+    return results;
+}
 
-        // 🔥 VALIDAÇÃO FORTE (isso resolve seu erro)
-        if (!command.name || typeof command.name !== "string") {
-            console.log(`❌ Ignorado (sem name): ${file}`);
+const commandFiles = getCommandFiles(commandsPath);
+
+// 📦 carregar comandos
+for (const file of commandFiles) {
+
+    try {
+        const command = require(file);
+
+        if (!command || !command.data || !command.data.name) {
+            console.log(`❌ Ignorado (sem data.name): ${path.basename(file)}`);
             continue;
         }
 
-        if (!command.description) {
-            command.description = "Sem descrição";
-        }
+        commands.push(command.data.toJSON());
+        console.log(`✅ Carregado: ${command.data.name}`);
 
-        commands.push({
-            name: command.name,
-            description: command.description
-        });
+    } catch (err) {
+        console.log(`❌ Erro ao carregar ${path.basename(file)}:`, err.message);
     }
 }
 
-console.log("🔄 Registrando comandos globais...");
-console.log(commands);
+// 🚀 REST
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
-// aqui continua seu REST request normalmente
+(async () => {
+    try {
+
+        console.log('🔄 Registrando comandos globais...');
+
+        const data = await rest.put(
+            Routes.applicationCommands(process.env.CLIENT_ID),
+            { body: commands }
+        );
+
+        console.log(`✅ ${data.length} comandos registrados com sucesso!`);
+
+    } catch (error) {
+        console.error('❌ Erro ao registrar comandos:', error);
+    }
+})();

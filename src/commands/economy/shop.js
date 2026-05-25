@@ -1,24 +1,25 @@
-const { EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    name: 'shop',
-    description: 'Veja a loja de pacotes',
+    data: new SlashCommandBuilder()
+        .setName('shop')
+        .setDescription('Veja a loja de pacotes'),
 
     async execute(interaction) {
 
         const embed = new EmbedBuilder()
             .setColor('#FFD700')
             .setTitle('🛒 Loja FiguVerse')
-            .setDescription(
-                `📦 **Basic Pack** — 500 coins\n` +
-                `⭐ Cartas comuns e raras\n\n` +
-                
-                `🎁 **Premium Pack** — 1500 coins\n` +
-                `✨ Mais chance de raras e épicas\n\n` +
-                
-                `💎 **Elite Pack** — 5000 coins\n` +
-                `🔥 Alta chance de épicas e lendárias`
-            );
+            .setDescription(`
+📦 Basic Pack — 500 coins
+⭐ Comum
+
+🎁 Premium Pack — 1500 coins
+✨ Melhor chance
+
+💎 Elite Pack — 5000 coins
+🔥 Alta raridade
+            `);
 
         return interaction.reply({ embeds: [embed] });
     }

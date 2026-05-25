@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const db = require("../../database/database");
 const cards = require("../../models/cards");
 
@@ -50,8 +50,10 @@ async function resetAlbum(userId) {
 }
 
 module.exports = {
-    name: "open-pack",
-    description: "Abre um pacote de figurinhas",
+
+    data: new SlashCommandBuilder()
+        .setName("open-pack")
+        .setDescription("Abre um pacote de figurinhas"),
 
     async execute(interaction) {
 

@@ -46,12 +46,12 @@ module.exports = {
         const sub = interaction.options.getSubcommand();
         const userId = interaction.user.id;
 
-        // 📦 INICIAR TROCA
+        // 📦 INICIAR
         if (sub === 'iniciar') {
 
             const target = interaction.options.getUser('usuario');
 
-            if (!target || target.bot) {
+            if (!target || target.bot || target.id === userId) {
                 return interaction.reply({
                     content: '❌ Usuário inválido.',
                     ephemeral: true
@@ -63,33 +63,47 @@ module.exports = {
                 target: target.id,
                 ownerCards: [],
                 targetCards: [],
-                status: 'pending'
+                confirmed: {
+                    owner: false,
+                    target: false
+                }
             };
 
             await db.set(`trade_${userId}`, trade);
             await db.set(`trade_${target.id}`, trade);
 
-            const embed = new EmbedBuilder()
-                .setTitle('🔁 Troca Iniciada')
-                .setColor('#00BFFF')
-                .setDescription(
-                    `👤 <@${userId}> iniciou uma troca com <@${target.id}>\n\n` +
-                    `Use /troca add para adicionar cartas`
-                );
-
-            return interaction.reply({ embeds: [embed] });
+            return interaction.reply({
+                embeds: [
+                    new EmbedBuilder()
+                        .setTitle('🔁 Troca Iniciada')
+                        .setColor('#00BFFF')
+                        .setDescription(
+                            `👤 <@${userId}> → <@${target.id}>\n\n` +
+                            `Use /troca add para adicionar cartas`
+                        )
+                ]
+            });
         }
 
-        // 🎴 ADICIONAR CARTA
+        // 🎴 ADD
         if (sub === 'add') {
 
             const cardId = interaction.options.getString('card');
-
             const trade = await db.get(`trade_${userId}`);
 
-            if (!trade || trade.owner !== userId) {
+            if (!trade) {
                 return interaction.reply({
-                    content: '❌ Você não iniciou uma troca.',
+                    content: '❌ Nenhuma troca ativa.',
+                    ephemeral: true
+                });
+            }
+
+            const isOwner = trade.owner === userId;
+            const isTarget = trade.target === userId;
+
+            if (!isOwner && !isTarget) {
+                return interaction.reply({
+                    content: '❌ Você não participa dessa troca.',
                     ephemeral: true
                 });
             }
@@ -103,25 +117,47 @@ module.exports = {
                 });
             }
 
-            trade.ownerCards.push(cardId);
+            // reset confirmação ao alterar troca
+            trade.confirmed.owner = false;
+            trade.confirmed.target = false;
 
-            await db.set(`trade_${userId}`, trade);
+            if (isOwner) {
+                trade.ownerCards.push(cardId);
+            } else {
+                trade.targetCards.push(cardId);
+            }
+
+            await db.set(`trade_${trade.owner}`, trade);
             await db.set(`trade_${trade.target}`, trade);
 
             return interaction.reply({
-                content: `✅ Carta **${cardId}** adicionada à troca.`,
+                content: `✅ Carta adicionada à troca.`,
                 ephemeral: true
             });
         }
 
-        // ✅ ACEITAR TROCA
+        // ✅ ACEITAR
         if (sub === 'aceitar') {
 
             const trade = await db.get(`trade_${userId}`);
 
-            if (!trade || trade.target !== userId) {
+            if (!trade) {
                 return interaction.reply({
-                    content: '❌ Nenhuma troca pendente.',
+                    content: '❌ Nenhuma troca ativa.',
+                    ephemeral: true
+                });
+            }
+
+            if (trade.owner === userId) trade.confirmed.owner = true;
+            if (trade.target === userId) trade.confirmed.target = true;
+
+            await db.set(`trade_${trade.owner}`, trade);
+            await db.set(`trade_${trade.target}`, trade);
+
+            // só executa se ambos confirmaram
+            if (!trade.confirmed.owner || !trade.confirmed.target) {
+                return interaction.reply({
+                    content: '⏳ Aguardando o outro jogador confirmar.',
                     ephemeral: true
                 });
             }
@@ -129,17 +165,23 @@ module.exports = {
             let invOwner = await db.get(`inventory_${trade.owner}`) || {};
             let invTarget = await db.get(`inventory_${trade.target}`) || {};
 
-            // 🔁 remover do owner e dar pro target
+            // OWNER → TARGET
             for (const cardId of trade.ownerCards) {
+                if (!invOwner[cardId]) continue;
 
-                invOwner[cardId] = (invOwner[cardId] || 1) - 1;
+                invOwner[cardId]--;
+                if (invOwner[cardId] <= 0) delete invOwner[cardId];
+
                 invTarget[cardId] = (invTarget[cardId] || 0) + 1;
             }
 
-            // 🔁 remover do target e dar pro owner
+            // TARGET → OWNER
             for (const cardId of trade.targetCards) {
+                if (!invTarget[cardId]) continue;
 
-                invTarget[cardId] = (invTarget[cardId] || 1) - 1;
+                invTarget[cardId]--;
+                if (invTarget[cardId] <= 0) delete invTarget[cardId];
+
                 invOwner[cardId] = (invOwner[cardId] || 0) + 1;
             }
 
@@ -150,18 +192,18 @@ module.exports = {
             await db.delete(`trade_${trade.target}`);
 
             return interaction.reply({
-                content: '🔁 Troca realizada com sucesso!'
+                content: '🔁 Troca concluída com sucesso!'
             });
         }
 
-        // ❌ RECUSAR TROCA
+        // ❌ RECUSAR
         if (sub === 'recusar') {
 
             const trade = await db.get(`trade_${userId}`);
 
-            if (!trade || trade.target !== userId) {
+            if (!trade) {
                 return interaction.reply({
-                    content: '❌ Nenhuma troca pendente.',
+                    content: '❌ Nenhuma troca ativa.',
                     ephemeral: true
                 });
             }
@@ -170,7 +212,7 @@ module.exports = {
             await db.delete(`trade_${trade.target}`);
 
             return interaction.reply({
-                content: '❌ Troca recusada.'
+                content: '❌ Troca cancelada.'
             });
         }
     }

@@ -1,9 +1,10 @@
-const { EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../../database/database');
 
 module.exports = {
-    name: 'profile',
-    description: 'Veja seu perfil',
+    data: new SlashCommandBuilder()
+        .setName('profile')
+        .setDescription('Veja seu perfil'),
 
     async execute(interaction) {
 

@@ -1,9 +1,10 @@
-const { EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../../database/database');
 
 module.exports = {
-    name: 'daily',
-    description: 'Pegue sua recompensa diária',
+    data: new SlashCommandBuilder()
+        .setName('daily')
+        .setDescription('Pegue sua recompensa diária'),
 
     async execute(interaction) {
 
@@ -17,7 +18,6 @@ module.exports = {
         if (lastDaily && now - lastDaily < cooldown) {
 
             const remaining = cooldown - (now - lastDaily);
-
             const hours = Math.ceil(remaining / (1000 * 60 * 60));
 
             return interaction.reply({

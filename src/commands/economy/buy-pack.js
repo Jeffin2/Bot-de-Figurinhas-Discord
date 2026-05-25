@@ -1,9 +1,21 @@
-const { EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../../database/database');
 
 module.exports = {
-    name: 'buy-pack',
-    description: 'Compre um pacote',
+    data: new SlashCommandBuilder()
+        .setName('buy-pack')
+        .setDescription('Compre um pacote')
+        .addStringOption(option =>
+            option
+                .setName('tipo')
+                .setDescription('Tipo do pacote')
+                .setRequired(true)
+                .addChoices(
+                    { name: 'Basic Pack', value: 'basic' },
+                    { name: 'Premium Pack', value: 'premium' },
+                    { name: 'Elite Pack', value: 'elite' }
+                )
+        ),
 
     async execute(interaction) {
 

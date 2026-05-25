@@ -51,7 +51,6 @@ module.exports = {
         if (sub === "list") {
 
             const all = await db.get("market_all") || {};
-
             const entries = Object.entries(all);
 
             if (entries.length === 0) {
@@ -65,16 +64,22 @@ module.exports = {
 
                 const card = cards.find(c => c.id === item.cardId);
 
-                return `🆔 ${id}\n🎴 ${card?.name || "?"}\n💰 ${item.price} coins\n👤 <@${item.sellerId}>\n`;
+                return `🆔 ${id}
+🎴 ${card?.name || "Carta desconhecida"}
+💰 ${item.price} coins
+👤 <@${item.sellerId}>
+⏳ Disponível`;
 
-            }).join("\n-----------------\n");
+            }).join("\n\n-----------------\n\n");
 
-            const embed = new EmbedBuilder()
-                .setTitle("🛒 Marketplace")
-                .setColor("#FFD700")
-                .setDescription(text);
-
-            return interaction.reply({ embeds: [embed] });
+            return interaction.reply({
+                embeds: [
+                    new EmbedBuilder()
+                        .setTitle("🛒 Marketplace")
+                        .setColor("#FFD700")
+                        .setDescription(text)
+                ]
+            });
         }
 
         // 💰 VENDER
@@ -82,6 +87,13 @@ module.exports = {
 
             const cardId = interaction.options.getString("card");
             const price = interaction.options.getInteger("price");
+
+            if (price <= 0) {
+                return interaction.reply({
+                    content: "❌ Preço inválido.",
+                    ephemeral: true
+                });
+            }
 
             let inventory = await db.get(`inventory_${userId}`) || {};
 
@@ -111,7 +123,7 @@ module.exports = {
             await db.set("market_all", market);
 
             return interaction.reply({
-                content: `✅ Carta colocada à venda por ${price} coins.`,
+                content: `✅ Carta colocada à venda por ${price} coins. (ID: ${id})`,
                 ephemeral: true
             });
         }
@@ -131,6 +143,13 @@ module.exports = {
                 });
             }
 
+            if (item.sellerId === userId) {
+                return interaction.reply({
+                    content: "❌ Você não pode comprar sua própria carta.",
+                    ephemeral: true
+                });
+            }
+
             const buyerCoins = await db.get(`coins_${userId}`) || 0;
 
             if (buyerCoins < item.price) {
@@ -140,24 +159,18 @@ module.exports = {
                 });
             }
 
-            if (item.sellerId === userId) {
-                return interaction.reply({
-                    content: "❌ Você não pode comprar sua própria carta.",
-                    ephemeral: true
-                });
-            }
-
             // 💰 transferir coins
             await db.sub(`coins_${userId}`, item.price);
             await db.add(`coins_${item.sellerId}`, item.price);
 
-            // 🎴 dar carta
+            // 🎴 adicionar carta
             let inventory = await db.get(`inventory_${userId}`) || {};
+
             inventory[item.cardId] = (inventory[item.cardId] || 0) + 1;
 
             await db.set(`inventory_${userId}`, inventory);
 
-            // remover do market
+            // 🧹 remover do market
             delete market[id];
             await db.set("market_all", market);
 

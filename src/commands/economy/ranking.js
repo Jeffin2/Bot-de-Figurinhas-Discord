@@ -1,9 +1,10 @@
-const { EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../../database/database');
 
 module.exports = {
-    name: 'ranking',
-    description: 'Ranking global de jogadores',
+    data: new SlashCommandBuilder()
+        .setName('ranking')
+        .setDescription('Ranking global de jogadores'),
 
     async execute(interaction) {
 
@@ -34,6 +35,7 @@ module.exports = {
         const text = await Promise.all(top.map(async (u, i) => {
 
             let user;
+
             try {
                 user = await interaction.client.users.fetch(u.userId);
             } catch {
@@ -44,8 +46,8 @@ module.exports = {
         }));
 
         const embed = new EmbedBuilder()
-            .setTitle('🏆 Ranking Global')
             .setColor('#FFD700')
+            .setTitle('🏆 Ranking Global')
             .setDescription(text.join('\n'));
 
         return interaction.reply({ embeds: [embed] });
