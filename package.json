@@ -4,7 +4,7 @@
   "description": "Este é um bot de Discord com o objetivo de adicionar um sistema de figurinhas para os servidores;\r A utilização dele nos servidores é livre;\r Erros de código ou mal funcionamento devem ser informados ao dono do bot;\r Contato: jeffinpvp.games@gmail.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
