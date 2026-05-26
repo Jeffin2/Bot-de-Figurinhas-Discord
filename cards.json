@@ -2827,7 +2827,7 @@
   },
   {
     "id": "LEG2",
-    "name": "Zidane ICON",
+    "name": "Neymar ICON",
     "selection": "Lendárias",
     "rarity": "Lendário"
   },
@@ -2839,7 +2839,7 @@
   },
   {
     "id": "LEG4",
-    "name": "Zidane ICON",
+    "name": "Allison ICON",
     "selection": "Lendárias",
     "rarity": "Lendário"
   },
@@ -2857,25 +2857,25 @@
   },
   {
     "id": "LEG7",
-    "name": "Maradona ICON",
+    "name": "Tite ICON",
     "selection": "Lendárias",
     "rarity": "Lendário"
   },
   {
     "id": "LEG8",
-    "name": "Cristiano ICON",
+    "name": "Gavi ICON",
     "selection": "Lendárias",
     "rarity": "Lendário"
   },
   {
     "id": "LEG9",
-    "name": "Cristiano ICON",
+    "name": "Ocelot ICON",
     "selection": "Lendárias",
     "rarity": "Lendário"
   },
   {
     "id": "LEG10",
-    "name": "Zidane ICON",
+    "name": "Pombo ICON",
     "selection": "Lendárias",
     "rarity": "Lendário"
   },
@@ -2893,7 +2893,7 @@
   },
   {
     "id": "MYT3",
-    "name": "Lenda Imortal",
+    "name": "Lenda Suprema",
     "selection": "Míticas",
     "rarity": "Mítico"
   },
@@ -2905,13 +2905,13 @@
   },
   {
     "id": "MYT5",
-    "name": "Titã Supremo",
+    "name": "Neymar Supremo",
     "selection": "Míticas",
     "rarity": "Mítico"
   },
   {
     "id": "MYT6",
-    "name": "Deus do Futebol",
+    "name": "Deus Brasileiro",
     "selection": "Míticas",
     "rarity": "Mítico"
   },
@@ -2929,7 +2929,7 @@
   },
   {
     "id": "MYT9",
-    "name": "Titã Supremo",
+    "name": "CR7 Supremo",
     "selection": "Míticas",
     "rarity": "Mítico"
   },
