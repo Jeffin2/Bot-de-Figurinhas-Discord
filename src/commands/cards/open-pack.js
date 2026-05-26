@@ -56,16 +56,18 @@ module.exports = {
 
                 .addChoices(
                     {
-                        name: "Normal",
-                        value: "normal"
+                        name: 'Basic Pack',
+                        value: 'basic'
                     },
+
                     {
-                        name: "Raro Boost",
-                        value: "rare"
+                        name: 'Premium Pack',
+                        value: 'premium'
                     },
+
                     {
-                        name: "Lendário Boost",
-                        value: "legendary"
+                        name: 'Elite Pack',
+                        value: 'elite'
                     }
                 )
         ),
@@ -77,7 +79,7 @@ module.exports = {
 
         // 📦 tipo do pacote
         const type =
-            interaction.options.getString("tipo") || "normal";
+            interaction.options.getString("tipo") || "basic";
 
         // 📦 verifica packs
         let packs =
@@ -103,13 +105,13 @@ module.exports = {
         let boost = 1;
         let pityBonus = 0;
 
-        if (type === "rare") {
+        if (type === "premium") {
 
             boost = 1.3;
             pityBonus = 2;
         }
 
-        if (type === "legendary") {
+        if (type === "elite") {
 
             boost = 1.7;
             pityBonus = 4;
