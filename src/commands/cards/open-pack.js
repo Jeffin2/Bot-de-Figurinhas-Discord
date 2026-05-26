@@ -53,7 +53,7 @@ module.exports = {
         const userId = interaction.user.id;
 
         // 📦 CHECK PACKS (CORREÇÃO PRINCIPAL)
-        let packs = await db.get(`packs_${userId}`) || 0;
+        let packs = await db.get(`packs_${userId}_${type}`) || 0;
 
         if (packs <= 0) {
             return interaction.reply({
@@ -63,7 +63,7 @@ module.exports = {
         }
 
         // 💸 REMOVE 1 PACK (ANTI EXPLOIT)
-        await db.set(`packs_${userId}`, packs - 1);
+        await db.set(`packs_${userId}_${type}`, packs - 1);
 
         const type = interaction.options.getString("tipo") || "normal";
 
