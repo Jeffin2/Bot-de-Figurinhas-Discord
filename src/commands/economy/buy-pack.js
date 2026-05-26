@@ -1,63 +1,292 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const db = require('../../database/database');
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const db = require("../../database/database");
+const cards = require("../../models/cards");
+
+// 🎲 raridade base
+function getRandomRarity(boost = 1) {
+
+    const roll = Math.random() * 100;
+
+    const common = 70 / boost;
+    const rare = 90 / boost;
+    const epic = 99 / boost;
+
+    if (roll < common) return "Comum";
+    if (roll < rare) return "Raro";
+    if (roll < epic) return "Épico";
+
+    return "Lendário";
+}
+
+// 🎴 pega carta pela raridade
+function getRandomCardByRarity(rarity) {
+
+    const pool =
+        cards.filter(c => c.rarity === rarity);
+
+    return pool[
+        Math.floor(Math.random() * pool.length)
+    ];
+}
+
+// 💰 valor duplicata
+function getDuplicateValue(rarity) {
+
+    if (rarity === "Comum") return 50;
+    if (rarity === "Raro") return 150;
+    if (rarity === "Épico") return 400;
+    if (rarity === "Lendário") return 1500;
+
+    return 50;
+}
 
 module.exports = {
+
     data: new SlashCommandBuilder()
-        .setName('buy-pack')
-        .setDescription('Compre um pacote')
+
+        .setName("open-pack")
+        .setDescription("Abre um pacote de figurinhas")
+
         .addStringOption(option =>
             option
-                .setName('tipo')
-                .setDescription('Tipo do pacote')
+
+                .setName("tipo")
+                .setDescription("Tipo do pacote")
                 .setRequired(true)
+
                 .addChoices(
-                    { name: 'Basic Pack', value: 'basic' },
-                    { name: 'Premium Pack', value: 'premium' },
-                    { name: 'Elite Pack', value: 'elite' }
+                    {
+                        name: "Basic Pack",
+                        value: "basic"
+                    },
+                    {
+                        name: "Premium Pack",
+                        value: "premium"
+                    },
+                    {
+                        name: "Elite Pack",
+                        value: "elite"
+                    }
                 )
         ),
 
     async execute(interaction) {
 
-        const userId = interaction.user.id;
+        const userId =
+            interaction.user.id;
 
-        const type = interaction.options.getString('tipo');
+        // 📦 tipo do pack
+        const type =
+            interaction.options.getString("tipo");
 
-        let price = 0;
+        // 📦 verifica quantidade
+        let packs =
+            await db.get(`packs_${userId}_${type}`) || 0;
 
-        if (type === 'basic') price = 500;
-        else if (type === 'premium') price = 1500;
-        else if (type === 'elite') price = 5000;
-        else {
+        if (packs <= 0) {
+
             return interaction.reply({
-                content: '❌ Tipo de pack inválido.',
+
+                content:
+                    "❌ Você não possui esse tipo de pacote.",
+
                 ephemeral: true
             });
         }
 
-        const coins = await db.get(`coins_${userId}`) || 0;
+        // 💸 remove 1 pack
+        await db.set(
+            `packs_${userId}_${type}`,
+            packs - 1
+        );
 
-        if (coins < price) {
-            return interaction.reply({
-                content: '❌ Coins insuficientes.',
-                ephemeral: true
+        // 🎲 boost por pack
+        let boost = 1;
+        let pityBonus = 0;
+
+        if (type === "premium") {
+
+            boost = 1.3;
+            pityBonus = 2;
+        }
+
+        if (type === "elite") {
+
+            boost = 1.7;
+            pityBonus = 4;
+        }
+
+        const msg =
+            await interaction.reply({
+
+                content:
+                    "📦 Abrindo pacote...",
+
+                fetchReply: true
+            });
+
+        await new Promise(r =>
+            setTimeout(r, 1000)
+        );
+
+        await msg.edit({
+
+            content:
+                "🎲 Sorteando carta..."
+        });
+
+        await new Promise(r =>
+            setTimeout(r, 1000)
+        );
+
+        // 📊 pity
+        let pity =
+            await db.get(`pity_${userId}`) || 0;
+
+        let rarity;
+
+        if (pity >= 29) {
+
+            rarity = "Lendário";
+            pity = 0;
+
+        } else {
+
+            rarity =
+                getRandomRarity(boost);
+        }
+
+        const card =
+            getRandomCardByRarity(rarity);
+
+        if (!card) {
+
+            return msg.edit({
+
+                content:
+                    "❌ Nenhuma carta encontrada."
             });
         }
 
-        // 💰 remove coins
-        await db.sub(`coins_${userId}`, price);
+        // 📦 inventário
+        let inventory =
+            await db.get(`inventory_${userId}`) || {};
 
-        // 📦 adiciona pack
-        await db.add(`packs_${userId}_${type}`, 1);
+        let isDuplicate = false;
+        let earnedCoins = 0;
 
-        const embed = new EmbedBuilder()
-            .setColor('#00FF7F')
-            .setTitle('📦 Pacote Comprado!')
-            .setDescription(
-                `✔ Você comprou um **${type} pack** por **${price} coins**`
+        if (inventory[card.id]) {
+
+            isDuplicate = true;
+
+            earnedCoins =
+                getDuplicateValue(card.rarity);
+
+            await db.add(
+                `coins_${userId}`,
+                earnedCoins
             );
 
-        return interaction.reply({
+        } else {
+
+            inventory[card.id] = 1;
+        }
+
+        // 📊 update pity
+        pity =
+            (card.rarity === "Lendário")
+                ? 0
+                : pity + 1 + pityBonus;
+
+        await db.set(
+            `pity_${userId}`,
+            pity
+        );
+
+        await db.set(
+            `inventory_${userId}`,
+            inventory
+        );
+
+        // 📈 XP
+        const xpGain =
+            50 + Math.floor(Math.random() * 50);
+
+        let xp =
+            await db.get(`xp_${userId}`) || 0;
+
+        let level =
+            await db.get(`level_${userId}`) || 0;
+
+        xp += xpGain;
+
+        let newLevel =
+            Math.floor(xp / 1000);
+
+        let levelUp =
+            newLevel > level;
+
+        level = newLevel;
+
+        await db.set(
+            `xp_${userId}`,
+            xp
+        );
+
+        await db.set(
+            `level_${userId}`,
+            level
+        );
+
+        const colors = {
+
+            "Comum": 0xffffff,
+            "Raro": 0x3498db,
+            "Épico": 0x9b59b6,
+            "Lendário": 0xf1c40f
+        };
+
+        const embed =
+            new EmbedBuilder()
+
+                .setTitle("🎴 Pacote Aberto!")
+
+                .setColor(
+                    colors[rarity] || 0xffffff
+                )
+
+                .setDescription(
+
+                    `**${card.name}**\n` +
+
+                    `🌍 ${card.selection}\n` +
+
+                    `⭐ ${card.rarity}\n` +
+
+                    `🎲 Drop: ${rarity}\n` +
+
+                    `📦 Tipo: ${type}\n` +
+
+                    `📦 Packs restantes: ${packs - 1}\n\n` +
+
+                    `📊 Pity: ${pity}/30\n` +
+
+                    `📈 XP: ${xp} (+${xpGain})\n` +
+
+                    `🏅 Level: ${level}` +
+
+                    (levelUp
+                        ? `\n🎉 LEVEL UP!`
+                        : "") +
+
+                    (isDuplicate
+                        ? `\n♻️ +${earnedCoins} coins (duplicata)`
+                        : "")
+                );
+
+        return msg.edit({
+
+            content: null,
             embeds: [embed]
         });
     }
