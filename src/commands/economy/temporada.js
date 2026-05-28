@@ -12,7 +12,7 @@ module.exports = {
 
         // 📖 dados salvos
         const season =
-            await db.get("current_season") || "Season 1";
+            await db.get("current_season") || "Álbum da copa 2026";
 
         const albumType =
             await db.get("album_type") || "Padrão";
