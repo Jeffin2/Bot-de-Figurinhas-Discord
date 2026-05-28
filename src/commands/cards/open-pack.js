@@ -102,20 +102,39 @@ module.exports = {
             packs - 1
         );
 
-        let boost = 1;
-        let pityBonus = 0;
+        // ⚙️ configuração dos packs
+        const packConfig = {
 
-        if (type === "premium") {
+            basic: {
+                amount: 3,
+                boost: 1,
+                pityBonus: 0
+            },
 
-            boost = 1.3;
-            pityBonus = 2;
-        }
+            premium: {
+                amount: 5,
+                boost: 1.3,
+                pityBonus: 2
+            },
 
-        if (type === "elite") {
+            elite: {
+                amount: 7,
+                boost: 1.7,
+                pityBonus: 4
+            }
+        };
 
-            boost = 1.7;
-            pityBonus = 4;
-        }
+        const config =
+            packConfig[type];
+
+        const amount =
+            config.amount;
+
+        const boost =
+            config.boost;
+
+        const pityBonus =
+            config.pityBonus;
 
         const msg =
             await interaction.reply({
@@ -132,7 +151,7 @@ module.exports = {
 
         await msg.edit({
             content:
-                "🎲 Sorteando energia do pack..."
+                "🎲 Sorteando cartas..."
         });
 
         await new Promise(r =>
@@ -143,60 +162,66 @@ module.exports = {
         let pity =
             await db.get(`pity_${userId}`) || 0;
 
-        let rarity;
-
-        if (pity >= 29) {
-
-            rarity = "Lendário";
-            pity = 0;
-
-        } else {
-
-            rarity =
-                getRandomRarity(boost);
-        }
-
-        const card =
-            getRandomCardByRarity(rarity);
-
-        if (!card) {
-
-            return msg.edit({
-
-                content:
-                    "❌ Nenhuma carta encontrada."
-            });
-        }
-
         // 📦 inventário
         let inventory =
             await db.get(`inventory_${userId}`) || {};
 
-        let isDuplicate = false;
-        let earnedCoins = 0;
+        let pulledCards = [];
 
-        if (inventory[card.id]) {
+        // 🎴 abrir múltiplas cartas
+        for (let i = 0; i < amount; i++) {
 
-            isDuplicate = true;
+            let rarity;
 
-            earnedCoins =
-                getDuplicateValue(card.rarity);
+            if (pity >= 29) {
 
-            await db.add(
-                `coins_${userId}`,
-                earnedCoins
-            );
+                rarity = "Lendário";
+                pity = 0;
 
-        } else {
+            } else {
 
-            inventory[card.id] = 1;
+                rarity =
+                    getRandomRarity(boost);
+            }
+
+            const card =
+                getRandomCardByRarity(rarity);
+
+            if (!card) continue;
+
+            let isDuplicate = false;
+            let earnedCoins = 0;
+
+            // ♻️ duplicata
+            if (inventory[card.id]) {
+
+                isDuplicate = true;
+
+                earnedCoins =
+                    getDuplicateValue(card.rarity);
+
+                await db.add(
+                    `coins_${userId}`,
+                    earnedCoins
+                );
+
+            } else {
+
+                inventory[card.id] = 1;
+            }
+
+            // 📊 pity update
+            pity =
+                (card.rarity === "Lendário")
+                    ? 0
+                    : pity + 1 + pityBonus;
+
+            pulledCards.push({
+                card,
+                duplicate: isDuplicate,
+                coins: earnedCoins
+            });
         }
-
-        // 📊 update pity
-        pity =
-            (card.rarity === "Lendário")
-                ? 0
-                : pity + 1 + pityBonus;
 
         await db.set(
             `pity_${userId}`,
@@ -246,39 +271,46 @@ module.exports = {
             "Lendário": 0xf1c40f
         };
 
+        // 🎨 cor pela melhor carta
+        const bestRarity =
+            pulledCards.some(c => c.card.rarity === "Lendário")
+                ? "Lendário"
+                : pulledCards.some(c => c.card.rarity === "Épico")
+                    ? "Épico"
+                    : pulledCards.some(c => c.card.rarity === "Raro")
+                        ? "Raro"
+                        : "Comum";
+
         const embed =
             new EmbedBuilder()
 
                 .setTitle("🎴 Pacote Aberto!")
 
                 .setColor(
-                    colors[rarity] || 0xffffff
+                    colors[bestRarity]
                 )
 
                 .setDescription(
 
-                    `**${card.name}**\n` +
+                    pulledCards.map(p =>
 
-                    `🌍 ${card.selection}\n` +
+                        `🎴 **${p.card.name}**\n` +
+                        `🌍 ${p.card.selection}\n` +
+                        `⭐ ${p.card.rarity}` +
 
-                    `⭐ ${card.rarity}\n` +
+                        (p.duplicate
+                            ? `\n♻️ +${p.coins} coins`
+                            : "")
 
-                    `🎲 Drop: ${rarity}\n` +
+                    ).join("\n\n") +
 
-                    `📦 Tipo: ${type}\n\n` +
-
-                    `📊 Pity: ${pity}/30\n` +
-
-                    `📈 XP: ${xp} (+${xpGain})\n` +
-
-                    `🏅 Level: ${level}` +
+                    `\n\n📦 Tipo: ${type}` +
+                    `\n📊 Pity: ${pity}/30` +
+                    `\n📈 XP: ${xp} (+${xpGain})` +
+                    `\n🏅 Level: ${level}` +
 
                     (levelUp
                         ? `\n🎉 LEVEL UP!`
-                        : "") +
-
-                    (isDuplicate
-                        ? `\n♻️ +${earnedCoins} coins (duplicata)`
                         : "")
                 );
 
