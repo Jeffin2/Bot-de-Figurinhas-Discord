@@ -2,7 +2,7 @@ const {
     SlashCommandBuilder
 } = require("discord.js");
 
-const sqlite3 = require("sqlite3").verbose();
+const Database = require("better-sqlite3");
 const path = require("path");
 const fs = require("fs");
 
@@ -21,132 +21,120 @@ module.exports = {
 
         const chave = interaction.options.getString("chave");
 
-        const dbPath = path.join(
-            __dirname,
-            "..",
-            "LicensingSystem",
-            "database",
-            "licenses.db"
-        );
+        try {
 
-        const db = new sqlite3.Database(dbPath);
+            const dbPath = path.join(
+                __dirname,
+                "..",
+                "LicensingSystem",
+                "database",
+                "licenses.db"
+            );
 
-        db.get(
-            "SELECT * FROM licenses WHERE license_key = ?",
-            [chave],
-            async (err, licenca) => {
+            const db = new Database(dbPath);
 
-                if (err) {
+            const licenca = db
+                .prepare(
+                    "SELECT * FROM licenses WHERE license_key = ?"
+                )
+                .get(chave);
 
-                    console.error(err);
+            if (!licenca) {
 
-                    return interaction.reply({
-                        content: "❌ Erro ao consultar licença.",
-                        ephemeral: true
-                    });
+                return interaction.reply({
+                    content: "❌ Licença não encontrada.",
+                    ephemeral: true
+                });
+            }
+
+            if (licenca.active === 0) {
+
+                return interaction.reply({
+                    content: "❌ Esta licença foi revogada.",
+                    ephemeral: true
+                });
+            }
+
+            if (licenca.guild_id) {
+
+                return interaction.reply({
+                    content:
+                        "❌ Esta licença já está vinculada a outro servidor.",
+                    ephemeral: true
+                });
+            }
+
+            const agora = new Date().toISOString();
+
+            db.prepare(`
+                UPDATE licenses
+                SET guild_id = ?,
+                    activated_at = ?
+                WHERE license_key = ?
+            `).run(
+                interaction.guild.id,
+                agora,
+                chave
+            );
+
+            try {
+
+                const serversPath = path.join(
+                    __dirname,
+                    "..",
+                    "LicensingSystem",
+                    "servers.json"
+                );
+
+                const servidores = JSON.parse(
+                    fs.readFileSync(
+                        serversPath,
+                        "utf8"
+                    )
+                );
+
+                const servidor = servidores.find(
+                    s => s.id === interaction.guild.id
+                );
+
+                if (servidor) {
+
+                    servidor.license_status = "active";
+
+                    fs.writeFileSync(
+                        serversPath,
+                        JSON.stringify(
+                            servidores,
+                            null,
+                            2
+                        )
+                    );
                 }
 
-                if (!licenca) {
+            } catch (erro) {
 
-                    return interaction.reply({
-                        content: "❌ Licença não encontrada.",
-                        ephemeral: true
-                    });
-                }
-
-                if (licenca.active === 0) {
-
-                    return interaction.reply({
-                        content: "❌ Esta licença foi revogada.",
-                        ephemeral: true
-                    });
-                }
-
-                if (licenca.guild_id) {
-
-                    return interaction.reply({
-                        content:
-                            "❌ Esta licença já está vinculada a outro servidor.",
-                        ephemeral: true
-                    });
-                }
-
-                const agora = new Date().toISOString();
-
-                db.run(
-                    `
-                    UPDATE licenses
-                    SET guild_id = ?,
-                        activated_at = ?
-                    WHERE license_key = ?
-                    `,
-                    [
-                        interaction.guild.id,
-                        agora,
-                        chave
-                    ],
-                    async (erroUpdate) => {
-
-                        if (erroUpdate) {
-
-                            console.error(erroUpdate);
-
-                            return interaction.reply({
-                                content: "❌ Erro ao ativar licença.",
-                                ephemeral: true
-                            });
-                        }
-
-                        try {
-
-                            const serversPath = path.join(
-                                __dirname,
-                                "..",
-                                "LicensingSystem",
-                                "servers.json"
-                            );
-
-                            const servidores = JSON.parse(
-                                fs.readFileSync(
-                                    serversPath,
-                                    "utf8"
-                                )
-                            );
-
-                            const servidor = servidores.find(
-                                s => s.id === interaction.guild.id
-                            );
-
-                            if (servidor) {
-
-                                servidor.license_status = "active";
-
-                                fs.writeFileSync(
-                                    serversPath,
-                                    JSON.stringify(
-                                        servidores,
-                                        null,
-                                        2
-                                    )
-                                );
-                            }
-
-                        } catch (erro) {
-
-                            console.error(
-                                "Erro ao atualizar servers.json:",
-                                erro
-                            );
-                        }
-
-                        await interaction.reply({
-                            content:
-                                "✅ Licença ativada com sucesso!",
-                            ephemeral: true
-                        });
-                    }
+                console.error(
+                    "Erro ao atualizar servers.json:",
+                    erro
                 );
             }
-        );
+
+            db.close();
+
+            await interaction.reply({
+                content:
+                    "✅ Licença ativada com sucesso!",
+                ephemeral: true
+            });
+
+        } catch (erro) {
+
+            console.error(erro);
+
+            return interaction.reply({
+                content: "❌ Erro ao ativar licença.",
+                ephemeral: true
+            });
+        }
     }
 };
