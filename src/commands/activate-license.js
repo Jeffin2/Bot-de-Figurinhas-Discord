@@ -6,12 +6,7 @@ const Database = require("better-sqlite3");
 const path = require("path");
 const fs = require("fs");
 
-if (!interaction.member.permissions.has("Administrator")) {
-    return interaction.reply({
-        content: "❌ Você não tem permissão para usar este comando.",
-        ephemeral: true
-    });
-}
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -28,6 +23,12 @@ module.exports = {
 
         const chave = interaction.options.getString("chave");
 
+        if (!interaction.member.permissions.has("Administrator")) {
+            return interaction.reply({
+                content: "❌ Você não tem permissão para usar este comando.",
+                ephemeral: true
+            });
+        }
         try {
 
             const dbPath = path.join(

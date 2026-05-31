@@ -6,12 +6,7 @@ const {
     ActionRowBuilder
 } = require("discord.js");
 
-if (!interaction.member.permissions.has("Administrator")) {
-    return interaction.reply({
-        content: "❌ Você não tem permissão para usar este comando.",
-        ephemeral: true
-    });
-}
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -23,6 +18,13 @@ module.exports = {
         const modal = new ModalBuilder()
             .setCustomId("license_request_form")
             .setTitle("Solicitação de Licença");
+
+        if (!interaction.member.permissions.has("Administrator")) {
+            return interaction.reply({
+                content: "❌ Você não tem permissão para usar este comando.",
+                ephemeral: true
+            });
+        }
 
         const emailInput = new TextInputBuilder()
             .setCustomId("email")
