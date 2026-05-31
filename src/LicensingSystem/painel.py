@@ -40,12 +40,18 @@ def criar_banco():
     CREATE TABLE IF NOT EXISTS licenses(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         license_key TEXT UNIQUE,
-        active INTEGER DEFAULT 1
+        active INTEGER DEFAULT 1,
+
+        guild_id TEXT,
+        owner_email TEXT,
+        activated_at TEXT
     )
     """)
 
     conn.commit()
     conn.close()
+
+    print("Banco criado com sucesso")
 
 criar_banco()
 

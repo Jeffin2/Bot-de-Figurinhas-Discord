@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const nodemailer = require("nodemailer");
 
 require('dotenv').config();
 
@@ -46,21 +47,54 @@ for (const file of commandFiles) {
 // BOT ONLINE (ÚNICO READY)
 // ==========================
 
-client.once("ready", () => {
+client.once("clientReady", () => {
 
     console.log(`🤖 Bot online como ${client.user.tag}`);
 
-    const servidores = client.guilds.cache.map(guild => ({
+    const serversPath = path.join(
+        __dirname,
+        "src",
+        "LicensingSystem",
+        "servers.json"
+    );
 
-        id: guild.id,
-        nome: guild.name,
-        membros: guild.memberCount,
+    let servidoresExistentes = [];
 
-        license_status: "none"
-    }));
+    if (fs.existsSync(serversPath)) {
+
+        try {
+
+            servidoresExistentes = JSON.parse(
+                fs.readFileSync(serversPath, "utf8")
+            );
+
+        } catch (erro) {
+
+            console.error(
+                "❌ Erro ao ler servers.json:",
+                erro
+            );
+        }
+    }
+
+    const servidores = client.guilds.cache.map(guild => {
+
+        const existente = servidoresExistentes.find(
+            s => s.id === guild.id
+        );
+
+        return {
+            id: guild.id,
+            nome: guild.name,
+            membros: guild.memberCount,
+
+            license_status:
+                existente?.license_status || "none"
+        };
+    });
 
     fs.writeFileSync(
-        path.join(__dirname, "src", "LicensingSystem", "servers.json"),
+        serversPath,
         JSON.stringify(servidores, null, 2)
     );
 
@@ -78,16 +112,78 @@ client.on('interactionCreate', async interaction => {
     // ==========================
     if (interaction.isChatInputCommand()) {
 
-        const command = client.commands.get(interaction.commandName);
+        const FREE_COMMANDS = [
+            "help",
+            "request-license",
+            "activate-license"
+        ];
+
+        // ==========================
+        // VERIFICAÇÃO DE LICENÇA
+        // ==========================
+
+        if (!FREE_COMMANDS.includes(interaction.commandName)) {
+
+            try {
+
+                const serversPath = path.join(
+                    __dirname,
+                    "src",
+                    "LicensingSystem",
+                    "servers.json"
+                );
+
+                const servidores = JSON.parse(
+                    fs.readFileSync(serversPath, "utf8")
+                );
+
+                const servidor = servidores.find(
+                    s => s.id === interaction.guild.id
+                );
+
+                if (
+                    !servidor ||
+                    servidor.license_status !== "active"
+                ) {
+
+                    return interaction.reply({
+                        content:
+                            "❌ Este servidor não possui uma licença ativa.\n\n" +
+                            "Use `/request-license` para solicitar uma licença.\n" +
+                            "Use `/activate-license` para ativar uma licença já adquirida.",
+                        ephemeral: true
+                    });
+                }
+
+            } catch (erro) {
+
+                console.error("Erro ao verificar licença:", erro);
+
+                return interaction.reply({
+                    content: "❌ Erro ao verificar a licença do servidor.",
+                    ephemeral: true
+                });
+            }
+        }
+
+        const command = client.commands.get(
+            interaction.commandName
+        );
 
         if (!command) return;
 
         try {
+
             await command.execute(interaction);
+
         } catch (err) {
+
             console.error(err);
 
-            if (interaction.replied || interaction.deferred) return;
+            if (
+                interaction.replied ||
+                interaction.deferred
+            ) return;
 
             await interaction.reply({
                 content: "❌ Erro ao executar comando.",
@@ -95,6 +191,9 @@ client.on('interactionCreate', async interaction => {
             });
         }
     }
+    console.log("==========");
+    console.log("Comando:", interaction.commandName);
+    console.log("Servidor:", interaction.guild.id);
 
     // ==========================
     // FORM (MODAL) - REQUEST LICENSE
@@ -105,16 +204,41 @@ client.on('interactionCreate', async interaction => {
 
             const email = interaction.fields.getTextInputValue("email");
             const username = interaction.fields.getTextInputValue("username");
+            const serverName = interaction.fields.getTextInputValue("server_name");
 
             console.log("📩 Nova solicitação de licença:");
             console.log("Email:", email);
             console.log("Username:", username);
             console.log("Servidor:", interaction.guild.name);
 
-            // aqui depois você pode:
-            // - enviar email pra você
-            // - salvar no banco
-            // - gerar fila de aprovação
+            try {
+
+                const transporter = nodemailer.createTransport({
+                    service: "gmail",
+                    auth: {
+                        user: process.env.EMAIL,
+                        pass: process.env.EMAIL_PASS
+                    }
+                });
+
+                await transporter.sendMail({
+                    from: process.env.EMAIL,
+                    to: process.env.EMAIL,
+                    subject: "Nova solicitação de licença",
+                    text:
+                        `Email: ${email}
+Username: ${username}
+Servidor: ${interaction.guild.name}
+ID do servidor: ${interaction.guild.id}`
+                });
+
+                console.log("📧 E-mail enviado com sucesso!");
+
+            } catch (erro) {
+
+                console.error("❌ Erro ao enviar e-mail:");
+                console.error(erro);
+            }
 
             await interaction.reply({
                 content: "📩 Sua solicitação foi enviada com sucesso!",
