@@ -6,6 +6,13 @@ const {
     ActionRowBuilder
 } = require("discord.js");
 
+if (!interaction.member.permissions.has("Administrator")) {
+    return interaction.reply({
+        content: "❌ Você não tem permissão para usar este comando.",
+        ephemeral: true
+    });
+}
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("request-license")
