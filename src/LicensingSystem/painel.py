@@ -31,7 +31,9 @@ os.makedirs(DB_DIR, exist_ok=True)
 DB_PATH = os.path.join(DB_DIR, "licenses.db")
 
 MFA_PATH = os.path.join(BASE_DIR, "mfa_code.txt")
-SERVERS_PATH = os.path.join(BASE_DIR, "servers.json")
+SERVERS_PATH = os.path.abspath(
+    os.path.join(BASE_DIR, "..", "..", "src", "LicensingSystem", "servers.json")
+)
 
 # ==========================
 # BANCO
