@@ -5,13 +5,21 @@ require('dotenv').config();
 
 const fs = require('fs');
 const path = require('path');
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const {
+    Client,
+    Collection,
+    GatewayIntentBits
+} = require('discord.js');
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds]
 });
 
 client.commands = new Collection();
+
+// ==========================
+// CARREGAR COMANDOS
+// ==========================
 
 const commandsPath = path.join(__dirname, 'src', 'commands');
 const commandFiles = fs.readdirSync(commandsPath, { recursive: true });
@@ -34,37 +42,92 @@ for (const file of commandFiles) {
     console.log(`✅ Carregado: ${command.data.name}`);
 }
 
-// 🔥 BOT ONLINE
-client.once('ready', () => {
+// ==========================
+// BOT ONLINE (ÚNICO READY)
+// ==========================
+
+client.once("ready", () => {
+
     console.log(`🤖 Bot online como ${client.user.tag}`);
+
+    const servidores = client.guilds.cache.map(guild => ({
+
+        id: guild.id,
+        nome: guild.name,
+        membros: guild.memberCount,
+
+        license_status: "none"
+    }));
+
+    fs.writeFileSync(
+        path.join(__dirname, "src", "LicensingSystem", "servers.json"),
+        JSON.stringify(servidores, null, 2)
+    );
+
+    console.log("📁 servers.json atualizado");
 });
 
-// 🎯 INTERAÇÕES
+// ==========================
+// INTERAÇÕES
+// ==========================
+
 client.on('interactionCreate', async interaction => {
 
-    if (!interaction.isChatInputCommand()) return;
+    // ==========================
+    // COMANDOS NORMAIS
+    // ==========================
+    if (interaction.isChatInputCommand()) {
 
-    const command = client.commands.get(interaction.commandName);
+        const command = client.commands.get(interaction.commandName);
 
-    if (!command) return;
+        if (!command) return;
 
-    try {
-        await command.execute(interaction);
+        try {
+            await command.execute(interaction);
+        } catch (err) {
+            console.error(err);
 
-    } catch (err) {
+            if (interaction.replied || interaction.deferred) return;
 
-        console.error(err);
+            await interaction.reply({
+                content: "❌ Erro ao executar comando.",
+                ephemeral: true
+            });
+        }
+    }
 
-        if (interaction.replied || interaction.deferred) return;
+    // ==========================
+    // FORM (MODAL) - REQUEST LICENSE
+    // ==========================
+    if (interaction.isModalSubmit()) {
 
-        await interaction.reply({
-            content: "❌ Erro ao executar comando.",
-            ephemeral: true
-        });
+        if (interaction.customId === "license_request_form") {
+
+            const email = interaction.fields.getTextInputValue("email");
+            const username = interaction.fields.getTextInputValue("username");
+
+            console.log("📩 Nova solicitação de licença:");
+            console.log("Email:", email);
+            console.log("Username:", username);
+            console.log("Servidor:", interaction.guild.name);
+
+            // aqui depois você pode:
+            // - enviar email pra você
+            // - salvar no banco
+            // - gerar fila de aprovação
+
+            await interaction.reply({
+                content: "📩 Sua solicitação foi enviada com sucesso!",
+                ephemeral: true
+            });
+        }
     }
 });
 
-// 🌐 WEB SERVER
+// ==========================
+// WEB SERVER
+// ==========================
+
 app.get('/', (req, res) => {
     res.send('FiguVerse online!');
 });
@@ -73,9 +136,15 @@ app.listen(3000, () => {
     console.log('🌐 Servidor web iniciado');
 });
 
-// 🔑 LOGIN
+// ==========================
+// LOGIN BOT
+// ==========================
+
 client.login(process.env.TOKEN);
 
-// 🛡️ ANTI-CRASH
+// ==========================
+// ANTI-CRASH
+// ==========================
+
 process.on('unhandledRejection', console.error);
 process.on('uncaughtException', console.error);
