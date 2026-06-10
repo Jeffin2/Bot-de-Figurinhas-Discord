@@ -20,11 +20,11 @@ function getTeamTypeName(type) {
 
 function getRarityStyle(rarity) {
 
-    if (rarity === "Common") return "⬜ Common";
-    if (rarity === "Rare") return "🟨 Rare";
-    if (rarity === "Epic") return "🟪 Epic";
+    if (rarity === "Common") return "⬜ Comum";
+    if (rarity === "Rare") return "🟨 Raro";
+    if (rarity === "Epic") return "🟪 Épico";
 
-    return "❔ Unknown";
+    return "❔ Desconhecida";
 }
 
 module.exports = {
