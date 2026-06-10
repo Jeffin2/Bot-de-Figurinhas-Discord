@@ -2,7 +2,7 @@
   {
     "id": "1471502713903644736",
     "nome": "DevSphere Nexus #500",
-    "membros": 452,
+    "membros": 459,
     "license_status": "none"
   },
   {
@@ -14,13 +14,19 @@
   {
     "id": "1482846394233389148",
     "nome": "Servidor de JeffinPVP",
-    "membros": 11,
+    "membros": 12,
     "license_status": "none"
   },
   {
     "id": "1501318590517874991",
     "nome": "Server do loren",
-    "membros": 30,
+    "membros": 31,
+    "license_status": "none"
+  },
+  {
+    "id": "1513707775669047488",
+    "nome": "Hospício do Killer (🚧 REWORKING🏗)",
+    "membros": 15,
     "license_status": "none"
   }
 ]
